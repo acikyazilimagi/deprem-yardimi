@@ -28,7 +28,7 @@
         },
         success: function(data) {
           $('#district').empty();
-            $('#district').append('<option value="">Seçiniz</option>');
+            $('#district').append('<option value="">İlçe Seçiniz</option>');
           $.each(data.data, function(key, value) {
             $('#district').append('<option value="'+value.district+'">'+value.district+'</option>');
           });
@@ -50,7 +50,7 @@
         },
         success: function(data) {
           $('#street').empty();
-            $('#street').append('<option value="">Seçiniz</option>');
+            $('#street').append('<option value="">Mahalle Seçiniz</option>');
           $.each(data.data, function(key, value) {
             $('#street').append('<option value="'+value.street+'">'+value.street+'</option>');
           });
