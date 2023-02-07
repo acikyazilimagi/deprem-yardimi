@@ -13,6 +13,8 @@
 <script src="{{asset('assets/vendor/filepond/js/filepond-plugin-file-validate-type.js')}}"></script>
 <script src="{{asset('assets/vendor/filepond/js/filepond.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
 @yield('js_vendor')
 
 <!-- Main Javascript File -->

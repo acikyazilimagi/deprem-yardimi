@@ -40,7 +40,7 @@ class DashboardController extends Controller
     $insert->district         = htmlspecialchars(strip_tags($request->district));
     $insert->street           = htmlspecialchars(strip_tags($request->street));
     $insert->street2          = htmlspecialchars(strip_tags($request->street2));
-    $insert->apartment        = htmlspecialchars(strip_tags($request->apartment));
+    $insert->apartment        = htmlspecialchars(strip_tags($request->apartment_name));
     $insert->apartment_no     = htmlspecialchars(strip_tags($request->apartment_no));
     $insert->apartment_floor  = htmlspecialchars(strip_tags($request->apartment_floor));
     $insert->phone            = htmlspecialchars(strip_tags($request->phone));
