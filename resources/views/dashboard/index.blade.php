@@ -2,6 +2,12 @@
 
 @section('css')
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+
+<style>
+#datatable{
+    margin: 15px 0 !important;
+}
+</style>
 @endsection
 
 @section('js_vendor')
@@ -214,7 +220,7 @@
       <div class="col-12 mt-4">
           <div class="card">
               <div class="card-body">
-                  <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                  <table id="datatable" class="table table-responsive table-striped table-bordered" style="width:100%">
                       <thead>
                       <tr>
                           <th>İl/İlçe/Mahalle</th>
