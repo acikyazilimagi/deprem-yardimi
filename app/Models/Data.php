@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Data extends Model
 {
+    protected $fillable = [
+        'city',
+        'district',
+        'street',
+        'street2',
+        'apartment',
+        'apartment_no',
+        'apartment_floor',
+        'phone',
+        'address',
+        'fullname',
+        'source',
+    ];
+
     use HasFactory;
 
     public function countCityData()
