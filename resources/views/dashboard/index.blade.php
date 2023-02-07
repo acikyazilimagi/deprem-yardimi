@@ -20,7 +20,23 @@
 
 @section('js_page')
 <script>
+    function getToken() {
+        $.ajax({
+            url: "{{route('get-token')}}",
+            type: "GET",
+            success: function(data, status, xhr) {
+                const token = xhr.getResponseHeader('X-AUTH-KEY')
+                $('#token').val(token)
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+
   $(document).ready(function() {
+      getToken()
+
     $(document).on('change', '#city', function(){
       const city = $(this).val();
       $.ajax({
@@ -86,11 +102,15 @@
         const data = $(this).closest('form').serialize();
 
         // TODO : 422 response dönünce swal ile mesaj verilmeli
+        // TODO : buton disable olmalı
 
         $.ajax({
             url: '{{ route('dashboard.store') }}',
             data: data,
             type: 'POST',
+            headers: {
+                "X-AUTH-KEY": $('#token').val()
+            },
             success: function (res) {
                 Swal.fire({
                     position: 'top-end',
@@ -116,9 +136,15 @@
                     timer: 2500
                 })
             },
+            complete: function (){
+                getToken()
+            }
         })
 
     })
+
+
+
   });
 </script>
 @endsection
@@ -169,14 +195,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="street2">Sokak</label>
-                                <input id="street2" class="form-control" name="street2" placeholder="Sokak Adını Giriniz." type="text"/>
+                                <label for="street2">Sokak (Zorunlu)</label>
+                                <input id="street2" class="form-control" name="street2" placeholder="Sokak Adını Giriniz. (Zorunlu)" type="text" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="apartment">Apartman (Zorunlu)</label>
-                                <input id="apartment" class="form-control" name="apartment_name" placeholder="Apartman veya Bina Adı Giriniz." type="text"/>
+                                <input id="apartment" class="form-control" name="apartment" placeholder="Apartman veya Bina Adı Giriniz." type="text"/>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -227,6 +253,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="token" value="" id="token">
                 </form>
             </div>
         </div>

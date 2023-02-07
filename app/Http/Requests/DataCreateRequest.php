@@ -24,10 +24,11 @@ class DataCreateRequest extends FormRequest
     public function rules()
     {
       return [
-        "city"		  => "required",
-        "district" 	=> "required",
-        "street"    => "required",
-        "source"    => "required",
+          "city"		  => "required",
+          "district" 	=> "required",
+          "street"    => "required",
+          "street2"    => "required",
+          "source"    => "required",
       ];
     }
 
@@ -36,7 +37,8 @@ class DataCreateRequest extends FormRequest
       return [
         "city"		  => "Şehir",
         "district" 	=> "İlçe",
-        "street"    => "Cadde/Sokak",
+        "street"    => "Mahalle",
+        "street2"    => "Cadde/Sokak",
         "source"    => "Kaynak",
       ];
     }
