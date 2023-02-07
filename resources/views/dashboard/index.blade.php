@@ -7,6 +7,10 @@
 #datatable{
     margin: 15px 0 !important;
 }
+
+#source::placeholder{
+    color: #cc6161 !important;
+}
 </style>
 @endsection
 
@@ -79,8 +83,9 @@
 
     $('.form_submit').on('click', function (e){
         e.preventDefault()
-
         const data = $(this).closest('form').serialize();
+
+        // TODO : 422 response dönünce swal ile mesaj verilmeli
 
         $.ajax({
             url: '{{ route('dashboard.store') }}',
@@ -112,6 +117,7 @@
                 })
             },
         })
+
     })
   });
 </script>
@@ -121,7 +127,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
+                <form id="myform" action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -130,6 +136,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="city">Şehir (Zorunlu)</label>
                                 <select id="city" class="form-control select2" name="city" required>
                                     <option value="">İl Seçiniz.</option>
                                     @foreach($cities as $city)
@@ -140,6 +147,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="district">İlçe (Zorunlu)</label>
                                 <select id="district" class="form-control select2" name="district" required>
                                     <option value="">İlçe Seçiniz.</option>
                                 </select>
@@ -147,6 +155,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="street">Mahalle (Zorunlu)</label>
                                 <select id="street" class="form-control select2" name="street" required>
                                     <option value="">Mahalle Seçiniz.</option>
                                 </select>
@@ -154,42 +163,50 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="apartment" class="form-control" name="street2" placeholder="Sokak Adını Giriniz." type="text"/>
+                                <label for="source">Bilgi Kaynağı (Zorunlu)</label>
+                                <input id="source" class="form-control" name="source" placeholder="Bilginin Kaynağını Giriniz (Zorunlu)" type="text" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="street2">Sokak</label>
+                                <input id="street2" class="form-control" name="street2" placeholder="Sokak Adını Giriniz." type="text"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="apartment">Apartman (Zorunlu)</label>
                                 <input id="apartment" class="form-control" name="apartment_name" placeholder="Apartman veya Bina Adı Giriniz." type="text"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="apartment" class="form-control" name="apartment_no" placeholder="Bina Dışa Kapı No. Giriniz." type="text"/>
+                                <label for="apartment_no">Bina Dış Kapı No</label>
+                                <input id="apartment_no" class="form-control" name="apartment_no" placeholder="Bina Dışa Kapı No. Giriniz." type="text"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="apartment" class="form-control" name="apartment_floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text"/>
+                                <label for="apartment_floor">Bulunan Kat</label>
+                                <input id="apartment_floor" class="form-control" name="apartment_floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="fullname">Ad ve Soyad</label>
                                 <input id="fullname" class="form-control" name="fullname" placeholder="Ad ve Soyad Giriniz (Zorunlu Değil)" type="text"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="phone">Telefon No</label>
                                 <input id="phone" class="form-control" name="phone" placeholder="Telefon No. Giriniz (Zorunlu Değil)" type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input id="source" class="form-control" name="source" placeholder="Bilginin Kaynağını Giriniz (Zorunlu)" type="text" required/>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input id="source" class="form-control" name="address" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
+                                <label for="address">Adres Tarifi</label>
+                                <input id="address" class="form-control" name="address" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
                             </div>
                         </div>
 
