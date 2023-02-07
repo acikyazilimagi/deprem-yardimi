@@ -1,7 +1,7 @@
 name: Deploy
 
 on:
-  workflow_dispatch:
+  push: [ main ]
 
 jobs:
   deploy:
@@ -22,6 +22,7 @@ jobs:
         with:
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           dep: deploy
+          verbosity:
 
       - name: Remove deployer config
         run: rm -f $GITHUB_WORKSPACE/deploy.yaml
