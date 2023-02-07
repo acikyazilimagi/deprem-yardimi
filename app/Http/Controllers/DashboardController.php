@@ -50,17 +50,23 @@ class DashboardController extends Controller
     $insert->save();
 
     if($insert){
-      return redirect("/")->with('success', [
-        'title' => 'Kayıt Başarılı',
-        'message' => 'Veri başarıyla eklendi',
-        'status' => 'success',
+      return response()->json([
+          'status' => true,
+          'data' => [
+              'title' => 'Kayıt Başarılı',
+              'message' => 'Veri başarıyla eklendi',
+              'status' => 'success',
+          ]
       ]);
     }else{
-      return redirect("/")->with('error', [
-        'title' => 'Kayıt Başarısız',
-        'message' => 'Veri eklenirken bir hata oluştu',
-        'status' => 'error',
-      ]);
+        return response()->json([
+            'status' => false,
+            'data' => [
+                'title' => 'Kayıt Başarısız',
+                'message' => 'Veri eklenirken bir hata oluştu',
+                'status' => 'error',
+            ]
+        ]);
     }
   }
 

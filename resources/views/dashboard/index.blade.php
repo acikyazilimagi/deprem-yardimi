@@ -22,6 +22,7 @@
         },
         success: function(data) {
           $('#district').empty();
+            $('#district').append('<option value="">Seçiniz</option>');
           $.each(data.data, function(key, value) {
             $('#district').append('<option value="'+value.district+'">'+value.district+'</option>');
           });
@@ -42,8 +43,8 @@
           district: district
         },
         success: function(data) {
-          console.log(data);
           $('#street').empty();
+            $('#street').append('<option value="">Seçiniz</option>');
           $.each(data.data, function(key, value) {
             $('#street').append('<option value="'+value.street+'">'+value.street+'</option>');
           });
@@ -70,6 +71,42 @@
         },
     });
 
+    $('.form_submit').on('click', function (e){
+        e.preventDefault()
+
+        const data = $(this).closest('form').serialize();
+
+        $.ajax({
+            url: '{{ route('dashboard.store') }}',
+            data: data,
+            type: 'POST',
+            success: function (res) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: res.data.status,
+                    title: res.data.title,
+                    html: res.data.message,
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+                $('#form_reset').click()
+
+                $('#city').val(null).trigger('change');
+                $('#district').val(null).trigger('change');
+                $('#street').val(null).trigger('change');
+            },
+            error: function (res) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: res.data.status,
+                    title: res.data.title,
+                    body: res.data.message,
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+            },
+        })
+    })
   });
 </script>
 @endsection
@@ -78,7 +115,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('dashboard.store') }}" method="post">
+                <form action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -149,11 +186,22 @@
                                 <input id="source" class="form-control" name="address" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
                             </div>
                         </div>
+
                         <div class="col-12">
-                            <button type="submit" name="submit" class="btn btn-block btn-info">
-                                <span class="btn-form-func-content">Kaydet</span>
-                                <span class="icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
-                            </button>
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <button type="reset" name="submit" id="form_reset" class="btn btn-block btn-danger">
+                                        <span class="btn-form-func-content">Temizle</span>
+                                        <span class="icon"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <button type="button" name="submit" data-type="save" class="form_submit btn btn-block btn-info">
+                                        <span class="btn-form-func-content">Kaydet</span>
+                                        <span class="icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
