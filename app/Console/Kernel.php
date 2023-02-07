@@ -15,7 +15,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // 10 dakika bir çalışacak şekilde ayarlandı. 
+        // Komutun üst üste binmemesi için 15 dakika overlapping eklendi.
+        // duplicate dataları temizleme işlemi.
+        $schedule->command('duplicate-data-checker')
+            ->everyTenMinutes()
+            ->runInBackground()
+            ->withoutOverlapping(15);
     }
 
     /**
@@ -25,7 +31,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
