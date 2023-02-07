@@ -41,4 +41,29 @@ class DashboardController extends Controller
     }
   }
 
+  public function list_all(Request $request)
+  {
+    $filter = [
+      "city"      => $request->city,
+      "district"  => $request->district,
+      "street"    => $request->street,
+      "street2"   => $request->street2,
+      "fullname"  => $request->fullname,
+    ];
+
+    $data = Data::filter($filter)->get();
+
+    if($data){
+      return response()->json([
+        "status"  => "success",
+        "data"    => $data
+      ], 200);
+    }else{
+      return response()->json([
+        "status"  => "error",
+        "message" => "Bad Request"
+      ], 404);
+    }
+  }
+
 }

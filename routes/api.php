@@ -18,3 +18,4 @@ use App\Http\Controllers\Api\{
 */
 
 Route::get("/list", [DashboardController::class, "index"])->name("api.list");
+Route::get("/list-all", [DashboardController::class, "list_all"])->name("api.list_all");
