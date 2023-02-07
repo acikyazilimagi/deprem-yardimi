@@ -80,6 +80,10 @@ class DashboardController extends Controller
       ->addColumn("fullname", function($row) {
         return $row?->fullname;
       })
+      ->filterColumn('fullname', function($query, $keyword) {
+        $query->whereRaw("fullname LIKE ?", ["%{$keyword}%"])
+              ->orWhereRaw("address LIKE ?", ["%{$keyword}%"]);
+      })
       ->make(true);
   }
 
