@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+    'AUTH_DOMAIN' => env('AUTH_DOMAIN', ''),
+    'AUTH_KEY_STATIC' => env('AUTH_KEY_STATIC', ''),
 
     /*
     |--------------------------------------------------------------------------

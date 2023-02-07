@@ -28,26 +28,8 @@ class DashboardController extends Controller
 
   public function store(DataCreateRequest $request)
   {
-    $this->validate($request, [
-			"city"		  => "required",
-			"district" 	=> "required",
-      "street"    => "required",
-      "source"    => "required",
-      ""
-		]);
-
     $insert = new Data();
-    $insert->city             = htmlspecialchars(strip_tags($request->city));
-    $insert->district         = htmlspecialchars(strip_tags($request->district));
-    $insert->street           = htmlspecialchars(strip_tags($request->street));
-    $insert->street2          = htmlspecialchars(strip_tags($request->street2));
-    $insert->apartment        = htmlspecialchars(strip_tags($request->apartment_name));
-    $insert->apartment_no     = htmlspecialchars(strip_tags($request->apartment_no));
-    $insert->apartment_floor  = htmlspecialchars(strip_tags($request->apartment_floor));
-    $insert->phone            = htmlspecialchars(strip_tags($request->phone));
-    $insert->address          = htmlspecialchars(strip_tags($request->address));
-    $insert->fullname         = htmlspecialchars(strip_tags($request->fullname));
-    $insert->source           = htmlspecialchars(strip_tags($request->source));
+    $insert->fill($request->all());
     $insert->save();
 
     if($insert){
