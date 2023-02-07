@@ -23,7 +23,7 @@ class DashboardController extends Controller
       "district"  => $request->district,
       "street"    => $request->street,
       "street2"   => $request->street2,
-      "fullanem"  => $request->fullname,
+      "fullname"  => $request->fullname,
     ];
 
     $data = Data::filter($filter)->paginate($request->per_page ?? 25);

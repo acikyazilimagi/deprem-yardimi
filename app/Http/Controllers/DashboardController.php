@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DataCreateRequest;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\{
   Data,
@@ -65,7 +66,7 @@ class DashboardController extends Controller
 
   public function datatable(Request $request)
   {
-    $query  = Data::distinct('address')->orderBy("id", "DESC");
+    $query  = Data::orderBy("id", "DESC");
 
     return Datatables::of($query)
       ->addColumn("city", function($row) {

@@ -10,12 +10,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-6 h-full d-flex align-items-center">
-          <h6>depremyardimi.com</h6>
+          <h6>depremyardim.com</h6>
       </div>
       <div class="col-lg-9 col-6">
         <!-- Menu -->
         <nav id="menu" class="main-menu">
-          <ul>
+          {{-- <ul>
             <li>
               <span><a href="#">Try Demos <i class="fa fa-chevron-down"></i></a></span>
               <ul>
@@ -34,7 +34,7 @@
                 <li><a href="php/phpmailer/email-confirmation.html" target="_blank">Confirmation</a></li>
               </ul>
             </li>								
-          </ul>
+          </ul> --}}
         </nav>
         <!-- Menu End -->
       </div>

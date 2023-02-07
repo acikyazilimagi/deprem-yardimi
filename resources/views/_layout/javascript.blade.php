@@ -21,7 +21,9 @@
 <script>
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
-    $('.select2').select2();
+    $('.select2').select2({
+      theme: 'bootstrap-5'
+    });
   });
 </script>
 
