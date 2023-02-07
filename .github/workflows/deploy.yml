@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add HTTP basic auth credentials
+        run: echo '${{ secrets.DEPLOYER_CONFIG }}' > $GITHUB_WORKSPACE/deploy.yaml
+
+      - name: Install Packages
+        run: composer install --ignore-platform-reqs --no-interaction
+
+      - name: Deploy
+        uses: deployphp/action@v1
+        with:
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          dep: deploy
+          verbosity:
+
+      - name: Remove deployer config
+        run: rm -f $GITHUB_WORKSPACE/deploy.yaml
