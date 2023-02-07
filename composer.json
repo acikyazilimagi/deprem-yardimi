@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.7",
+        "livewire/livewire": "^2.11",
         "yajra/laravel-datatables": "9.0"
     },
     "require-dev": {
