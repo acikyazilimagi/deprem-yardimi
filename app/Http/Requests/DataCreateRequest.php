@@ -23,32 +23,62 @@ class DataCreateRequest extends FormRequest
      */
     public function rules()
     {
-      return [
-        "city"		  => "required",
-        "district" 	=> "required",
-        "street"    => "required",
-        "source"    => "required",
-      ];
+        return [
+            'city' => [
+                'required'
+            ],
+            'district' => [
+                'required'
+            ],
+            'street' => [
+                'required'
+            ],
+            'street2' => [
+                'required'
+            ],
+            'apartment' => [
+                'required'
+            ],
+            'apartment_no' => [
+                'required'
+            ],
+            'apartment_floor' => [
+                'required'
+            ],
+            'phone' => [
+                'required'
+            ],
+            'address' => [
+                'required'
+            ],
+            'fullname' => [
+                'required'
+            ],
+            'source' => [
+                'required'
+            ],
+        ];
     }
 
     public function attributes()
     {
-      return [
-        "city"		  => "Şehir",
-        "district" 	=> "İlçe",
-        "street"    => "Cadde/Sokak",
-        "source"    => "Kaynak",
-      ];
+        //Todo(YasinKose): Vakti olan attribute tanımlamalarını yapabilir.
+        return [
+            "city" => "Şehir",
+            "district" => "İlçe",
+            "street" => "Cadde/Sokak",
+            "source" => "Kaynak",
+        ];
     }
 
     public function messages()
     {
-      return [
-        "city.required"		    => ":attribute alanı boş bırakılamaz",
-        "district.required" 	=> ":attribute alanı boş bırakılamaz",
-        "street.required"     => ":attribute alanı boş bırakılamaz",
-        "source.required"     => ":attribute alanı boş bırakılamaz",
-      ];
+        return [
+            "city.required" => ":attribute alanı boş bırakılamaz",
+            "district.required" => ":attribute alanı boş bırakılamaz",
+            "street.required" => ":attribute alanı boş bırakılamaz",
+            "source.required" => ":attribute alanı boş bırakılamaz",
+        ];
     }
 
 }
