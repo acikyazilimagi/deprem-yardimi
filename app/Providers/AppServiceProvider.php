@@ -28,10 +28,12 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
         }
-        
-        if (Schema::hasTable('settings')) {
-            $settings = Setting::pluck('value', 'meta')->toArray();
-            config($settings);
+
+        if (! $this->app->runningInConsole()) {
+            if (Schema::hasTable('settings')) {
+                $settings = Setting::pluck('value', 'meta')->toArray();
+                config($settings);
+            }
         }
     }
 }
