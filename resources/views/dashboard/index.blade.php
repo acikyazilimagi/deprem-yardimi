@@ -101,6 +101,8 @@
         e.preventDefault()
         const data = $(this).closest('form').serialize();
 
+        $('#form-save').attr('disabled', 'disabled')
+
         // TODO : 422 response dönünce swal ile mesaj verilmeli
         // TODO : buton disable olmalı
 
