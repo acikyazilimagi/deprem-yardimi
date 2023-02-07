@@ -124,7 +124,7 @@ RUN \
 
 ENTRYPOINT [ "/var/www/deploy/entrypoint.sh" ]
 
-# docker build -f ./deploy/Dockerfile -t acikkaynak/deprem-yardimi:latest .
+# docker build -f ./Dockerfile -t acikkaynak/deprem-yardimi:latest .
 # docker push acikkaynak/deprem-yardimi
 # docker run -it -p 8000:80 --env-file .env acikkaynak/deprem-yardimi
 
