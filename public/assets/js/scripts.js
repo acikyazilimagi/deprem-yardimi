@@ -53,7 +53,7 @@
 
 	// =====================================================
 	//      MOBILE MENU
-	// =====================================================	
+	// =====================================================
 	var $menu = $("nav#menu").mmenu({
 		"extensions": ["pagedim-black", "theme-white"], // "theme-dark" can be changed to: "theme-white"
 		counters: true,
@@ -89,7 +89,7 @@
 	// =====================================================
 	//      DROPDOWN MANAGEMENT
 	// =====================================================
-	$('select').niceSelect();
+	// $('select').niceSelect();
 
 	// Function for saving the selected dropdown item
 	function saveSelectedDropdownItem() {
@@ -138,10 +138,10 @@
 	// =====================================================
 	//      FORM INPUT VALIDATION
 	// =====================================================
-	$('#contactForm').parsley();
-
-	$('#contactForm').parsley().on('field:success', function() { 
-		$('ul.parsley-errors-list').not(':has(li)').remove();
-	});
+	// $('#contactForm').parsley();
+    //
+	// $('#contactForm').parsley().on('field:success', function() {
+	// 	$('ul.parsley-errors-list').not(':has(li)').remove();
+	// });
 
 })(window.jQuery);
