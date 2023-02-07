@@ -64,7 +64,10 @@
         {data: 'address'},
         {data: 'address_detail'},
         {data: 'fullname'},
-      ]
+      ],
+        search: {
+            return: true,
+        },
     });
 
   });
