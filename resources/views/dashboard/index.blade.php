@@ -53,6 +53,9 @@
 
 @section('content-side')
     <div class="col-12">
+        <div class="alert alert-info">Lütfen kayıt eklemeden önce <a class="badge badge-info p-2 font-weight-bold text-white" style="font-size: 12px" href="{{ route('fast_search') }}">Yardım İsteyenler</a> sayfasından aynı kaydın daha önce eklenip eklenmediğini kontrol ediniz.</div>
+    </div>
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <livewire:address-notification-form/>
