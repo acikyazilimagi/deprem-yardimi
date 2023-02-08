@@ -9,8 +9,10 @@
         <span class="font-weight-bold">Gaziantep:</span> <a href="tel:+903424281118">0342 428 1118</a><br>
         <span class="font-weight-bold">Hatay:</span> <a href="tel:+903261120000">0326 112 0000</a><br>
         <span class="font-weight-bold">Kahramanmaraş:</span> <a href="tel:+903442214991">0344 221 4991</a><br>
+        <span class="font-weight-bold">Kilis:</span> <a href="tel:+903488134478">0348 813 44 78</a>
         <span class="font-weight-bold">Malatya:</span> <a href="tel:+904222128432">0422 212 8432</a><br>
         <span class="font-weight-bold">Mardin:</span> <a href="tel:+904822123740">0482 212 3740</a><br>
+        <span class="font-weight-bold">Osmaniye:</span> <a href="tel:+903288252080">0328 825 20 80</a>
         <span class="font-weight-bold">Şanlıurfa:</span> <a href="tel:+904143137290">0414 313 7290</a><br>
     </div>
 
