@@ -97,13 +97,13 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="fullname">Ad ve Soyad</label>
-                <input class="form-control" wire:model.defer="nameSurname" placeholder="Ad ve Soyad Giriniz (Zorunlu Değil)" type="text"/>
+                <input class="form-control" wire:model.defer="nameSurname" id="nameSurname" placeholder="Ad ve Soyad Giriniz (Zorunlu Değil)" type="text"/>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label for="phone">Telefon No</label>
-                <input class="form-control" wire:model.defer="phoneNumber" placeholder="0 555 555 55 55 Şeklinde Giriniz.." type="tel" name="phone" id="address_form_phone" />
+                <input class="form-control" wire:model.defer="phoneNumber" id="address_form_phone" placeholder="0 555 555 55 55 Şeklinde Giriniz.." type="tel" name="phone" />
             </div>
         </div>
         <div class="col-md-12">
@@ -125,7 +125,7 @@
                     <button wire:click="clearForm" type="button" name="submit" class="btn btn-block btn-danger">Temizle</button>
                 </div>
                 <div class="col-12 col-md-9 order-0 order-md-1 mb-3">
-                    <button type="submit" name="submit" data-type="save" class="form_submit btn btn-block btn-info">Kaydet</button>
+                    <button id="submit-button" type="submit" name="submit" data-type="save" class="form_submit btn btn-block btn-info">Kaydet</button>
                 </div>
             </div>
         </div>
@@ -148,6 +148,26 @@
         })
 
         window.addEventListener('formSubmitted', ({detail}) => {
+            $('#submit-button').prop('disabled', true)
+
+            $('#nameSurname').val('')
+            $('#address_form_phone').val('')
+
+            let countdown = 5
+            let interval = setInterval(function () {
+                countdown--
+                if(countdown === 0){
+                    $('#submit-button').html('Kaydet')
+                }else{
+                    $('#submit-button').html(countdown + ' saniye bekleyiniz..')
+                }
+            }, 1000)
+
+            setTimeout(function () {
+                $('#submit-button').prop('disabled', false)
+                clearInterval(interval)
+            }, 5000)
+
             Swal.fire({
                 position: 'top-end',
                 icon: detail.status,
