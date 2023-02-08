@@ -16,8 +16,12 @@
             });
         }
 
-        function loadDistirct(city) {
-            $.ajax({
+        $(function () {
+            getToken()
+
+            $(document).on('change', '#city', function () {
+                const city = $(this).val();
+                $.ajax({
                     url: "{{route('get_district')}}",
                     type: "POST",
                     data: {
@@ -36,21 +40,7 @@
                         console.log(err);
                     }
                 });
-        }
-
-        $(function () {
-            getToken()
-            
-            const city = "{{$filter_city ?? ''}}"
-            if(city) {
-                loadDistirct(city)
-            }
-
-            $(document).on('change', '#city', function () {
-                const city = $(this).val();
-                loadDistirct(city);
             });
-
             $(document).on('change', '#district', function () {
                 const district = $(this).val();
                 $.ajax({
@@ -138,6 +128,8 @@
                 });
 
             })
+
+            $('#city').trigger('change');
         })
     </script>
 @endsection
@@ -146,9 +138,9 @@
     <input type="hidden" id="token">
     <div class="container">
         <div class="col-12 mb-3">
-        @if($alert_message) 
-        <div class="alert alert-warning" role="alert">{!!$alert_message!!}</div>
-        @endif
+         @if(!empty($filter_city)) 
+           <div class="alert alert-warning" role="alert">Lütfen <b>İlçe</b> seçiniz ve <b>Ara</b> butonuna tıklayınız.</div>
+         @endif
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -159,7 +151,7 @@
                                     <option value="">İl Seçiniz.</option>
                                     @foreach($cities as $city)
                                         <option value="{{$city->city}}" 
-                                        {{ $filter_city == $city->city ?  'selected="selected"' : '' }}
+                                        {{ mb_strtolower($filter_city) === mb_strtolower($city->city) ?  'selected="selected"' : '' }}
                                         >{{$city->city}}</option>
                                     @endforeach
                                 </select>
@@ -208,17 +200,7 @@
                                     <th>Kaynak</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            {{-- @foreach($filtered_data as $item)
-                            <tr>
-                            <td>{{"$item->city/$item->district/$item->street"}} <br> Oluşturulma : {{$item->created_at}}</td>
-                            <td>{{"$item->street2/$item->apartment/$item->apartment_no/$item->apartment_floor"}}</td>
-                            <td>{{$item->address}}</td>
-                            <td>{{$item->fullname}}</td>      
-                            <td>{{$item->source}}</td>      
-                            </tr>
-                            @endforeach --}}
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
