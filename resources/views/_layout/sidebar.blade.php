@@ -18,7 +18,9 @@
         <h2>Kayıtlı Yardım Talepleri</h2>
         <div style="gap: 5px;">
             @foreach($cityList as $cityName)
-                <span class="btn btn-sm btn-outline-light mb-1 text-dark">{{ $cityName?->city }} ({{ $cityName?->countCityData() }})</span>
+                <a class="btn btn-sm btn-outline-light mb-1 text-dark text-decoration-none"
+                 href='{{route("filter.index", ['city' => $cityName?->city])}}' role="button">
+                 {{ $cityName?->city }} ({{ $cityName?->countCityData() }})</a>
             @endforeach
         </div>
     </div>
