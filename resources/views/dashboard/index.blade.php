@@ -90,6 +90,11 @@
         {data: 'city'},
         {data: 'address'},
         {data: 'address_detail'},
+        {data: 'maps_link', 'fnCreatedCell': function (nTd, sData, oData, iRow, iCol) {
+            if(oData.maps_link){
+                $(nTd).html("<a href='"+oData.maps_link+"' target='_blank'>"+oData.maps_link+"</a>");
+            }
+        }},
         {data: 'fullname'},
       ],
         search: {
@@ -239,6 +244,12 @@
                                 <input id="address" class="form-control" name="address" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="address">Google Maps Linki</label>
+                                <input id="address" class="form-control" name="maps_link" placeholder="Konuma Ait Google Maps Linki" type="text"/>
+                            </div>
+                        </div>
 
                         <div class="col-12">
                             <div class="row">
@@ -274,6 +285,7 @@
                           <th>İl/İlçe/Mahalle</th>
                           <th>Adres Bilgisi</th>
                           <th>Adres Tarifi</th>
+                          <th>Link</th>
                           <th>Ad Soyad</th>
                       </tr>
                       </thead>

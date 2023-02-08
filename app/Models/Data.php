@@ -19,6 +19,7 @@ class Data extends Model
         'address',
         'fullname',
         'source',
+        'maps_link'
     ];
 
     use HasFactory;
