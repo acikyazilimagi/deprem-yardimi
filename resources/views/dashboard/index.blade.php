@@ -154,19 +154,21 @@
     <div class="col-12 mt-4">
         <div class="card">
             <div class="card-body">
-                <table id="datatable" class="table table-responsive table-striped table-bordered" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>İl/İlçe/Mahalle</th>
-                        <th>Adres Bilgisi</th>
-                        <th>Adres Tarifi</th>
-                        <th>Ad Soyad</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table id="datatable" class="table table-striped table-bordered w-100">
+                        <thead>
+                        <tr>
+                            <th>İl/İlçe/Mahalle</th>
+                            <th>Adres Bilgisi</th>
+                            <th>Adres Tarifi</th>
+                            <th>Ad Soyad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
