@@ -22,7 +22,7 @@ Gereksinimler:
 
 ```bash
 # Projeyi klonlayın
-git clone
+git clone https://github.com/acikkaynak/deprem-yardimi.git
 
 # Proje dizinine girin
 cd deprem-yardimi
