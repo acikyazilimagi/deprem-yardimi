@@ -124,14 +124,14 @@ Author URL: https://codecanyon.net/user/ultimatewebsolutions/
 
 html * {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;  
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: #f8f8f8;
-  font-size: 14px;  
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  color: #555;  
+  color: #555;
 }
 
 main {
@@ -150,12 +150,12 @@ h6 {
 }
 
 h1,
-h2 {  	
-  	font-weight: 700;  	
+h2 {
+  	font-weight: 700;
 }
 
 hr {
-	margin: 15px 0 30px 0;	
+	margin: 15px 0 30px 0;
 	border-color: #ededed;
 }
 
@@ -166,20 +166,20 @@ p {
 
 a {
 	color: #53c4da;
-	text-decoration: none;	
+	text-decoration: none;
 	outline: none;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-webkit-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;	
+	transition: all 0.5s ease-in-out;
 }
-a:hover, 
+a:hover,
 a:focus,
 a:visited {
 	color: #333;
 	text-decoration: none;
-	outline: none;		
+	outline: none;
 }
 
 ul,
@@ -196,7 +196,7 @@ p {
 p.lead {
   font-weight: 400;
   font-size: 20px;
-  color: #555;  
+  color: #555;
 }
 
 strong {
@@ -204,9 +204,9 @@ strong {
 }
 
 label {
-	color: #555;  	
+	color: #555;
   	font-size: 14px;
-  	font-weight: 500;  
+  	font-weight: 500;
   	margin: 0;
 }
 
@@ -216,7 +216,7 @@ button:focus {
 
 .underline-link {
 	color: #53c4da;
-	text-decoration: none;	
+	text-decoration: none;
 	outline: none;
 }
 .underline-link:hover {
@@ -271,15 +271,15 @@ header.static {
     color: #53c4da;
 }
 
-.main-menu ul ul {    
+.main-menu ul ul {
     border-top: 2px solid #53c4da;
 }
 
-.main-menu ul ul li:hover > a {   
-    color: #53c4da;   
+.main-menu ul ul li:hover > a {
+    color: #53c4da;
 }
 
-.main-menu ul ul li span > a:hover {	
+.main-menu ul ul li span > a:hover {
 	color: #53c4da;
 }
 
@@ -307,7 +307,7 @@ ul#menuIcons li {
 }
 
 ul#menuIcons li i {
-  	font-size: 34px;  
+  	font-size: 34px;
 }
 
 ul#menuIcons li a {
@@ -342,7 +342,6 @@ ul#menuIcons li a:hover {
 .sub-header {
 	background-color: #53c4da;
 	padding: 15px 0;
-	margin-top: 59px;	
 }
 
 .sub-header h1 {
@@ -357,10 +356,10 @@ ul#menuIcons li a:hover {
 
 footer.main-footer {
 	padding-top: 30px;
-	padding-bottom: 30px;	
+	padding-bottom: 30px;
 	color: #555;
 	background: #fff;
-	border-top: 1px solid #ddd;	
+	border-top: 1px solid #ddd;
 }
 
 footer.main-footer ul.nav-links li i {
@@ -376,12 +375,12 @@ footer.main-footer ul.nav-links li i {
 	color: #555;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 1.8;	
+	line-height: 1.8;
 }
-  
+
 .footer-link:hover, .footer-link:focus {
 	text-decoration: underline;
-} 
+}
 
 .contact-links i {
 	color: #53c4da;
@@ -447,7 +446,7 @@ ul#subFooterLinks li:after {
 }
 
 ul#subFooterLinks i {
-	color: #53c4da;	
+	color: #53c4da;
 }
 
 /* Containers
@@ -466,20 +465,20 @@ ul#subFooterLinks i {
 	border-top: none;
 }
 
-.box.first {	
-	border-top: 1px solid #ddd;	
+.box.first {
+	border-top: 1px solid #ddd;
 }
 
 .box-header {
 	margin: 0 15px 20px 15px;
 	width: 100%;
-	border-bottom: 2px dotted #ddd;	
+	border-bottom: 2px dotted #ddd;
 }
 
 .box-header h3 {
 	margin-left: 50px;
-	font-size: 20px;	
-	color: #555;	
+	font-size: 20px;
+	color: #555;
 }
 
 .box-header h3 strong {
@@ -493,7 +492,7 @@ ul#subFooterLinks i {
 	-ms-border-radius: 50%;
 	border-radius: 50%;
 	color: #fff;
-	font-size: 18px;	
+	font-size: 18px;
 	line-height: 42px;
 	text-align: center;
 	position: absolute;
@@ -501,7 +500,7 @@ ul#subFooterLinks i {
     top: 22px;
 }
 
-.box-header p {	
+.box-header p {
 	font-size: 14px;
 	font-weight: 400;
 	margin-bottom: 20px;
@@ -573,7 +572,7 @@ input.form-control:disabled {
 }
 
 #inputMessage {
-	height: 180px;	
+	height: 180px;
 }
 
 /* Nice Select Dropdown */
@@ -581,7 +580,7 @@ input.form-control:disabled {
 .nice-select {
 	-webkit-tap-highlight-color: transparent;
 	background-color: transparent;
-	border-radius: 0;  
+	border-radius: 0;
 	border: 1px solid #ddd;
 	box-sizing: border-box;
 	clear: both;
@@ -667,13 +666,13 @@ input.form-control:disabled {
 }
 
 .nice-select.wide {
-	width: 100%;	
+	width: 100%;
 }
 
 .nice-select.border-bottom-only {
 	border: none;
 	border-bottom: 1px solid #ddd;
-	padding-left:0;	
+	padding-left:0;
 }
 
 .nice-select.wide .list {
@@ -710,7 +709,7 @@ input.form-control:disabled {
 	background-color: #fff;
 	border: 1px solid #53c4da;
 	border-radius: 0;
-	box-sizing: border-box;  
+	box-sizing: border-box;
 	opacity: 0;
 	overflow: hidden;
 	padding: 0;
@@ -750,7 +749,7 @@ input.form-control:disabled {
 .nice-select .option:hover,
 .nice-select .option.focus,
 .nice-select .option.selected.focus {
-	background-color: #fafafa;	
+	background-color: #fafafa;
 }
 
 .nice-select .option.selected {
@@ -773,8 +772,8 @@ input.form-control:disabled {
 
 /* Uploader */
 
-.filepond--root {    
-    margin-bottom: 0;    
+.filepond--root {
+    margin-bottom: 0;
 }
 
 /* Placeholders */
@@ -894,14 +893,14 @@ input.form-control:disabled {
 
 /* Checkboxes */
 
-label.cbx.terms {    
+label.cbx.terms {
 	margin: 0;
 	padding: 0;
-	border: 0; 
-	height: 22px;	
+	border: 0;
+	height: 22px;
 }
 
-label.cbx {	
+label.cbx {
 	font-size: 14px;
 	font-weight: 500;
 	margin-top: 20px;
@@ -919,7 +918,7 @@ label.cbx {
 
 .cbx span {
 	display: inline-block;
-	vertical-align: middle;  
+	vertical-align: middle;
 	font-size: 14px;
 	font-weight: 500;
 }
@@ -932,7 +931,7 @@ label.cbx {
 	vertical-align: middle;
 	border: 1px solid #53c4da;
 	transition: all 0.2s ease;
-	margin-right: 10px;	
+	margin-right: 10px;
 }
 
 .cbx span:first-child svg {
@@ -1009,7 +1008,7 @@ label.cbx {
 
 /* Form Validation */
 
-.parsley-errors-list.filled {  
+.parsley-errors-list.filled {
 	font-size: 10px !important;
 	text-transform: uppercase;
 	border: 1px solid #e34f4f;
@@ -1042,20 +1041,20 @@ label.cbx {
 .contact-box {
 	background-color: #fff;
 	border: 1px solid #ddd;
-	padding: 25px;	
+	padding: 25px;
 	margin-bottom: 15px;
 	text-align: center;
-	font-size: 15px;	
+	font-size: 15px;
   }
 
 .contact-box h2 {
 	font-weight: 500;
 	margin: 10px 0 10px 0;
-	font-size: 20px;	
+	font-size: 20px;
 }
 
 .contact-box i {
-	font-size: 46px;	
+	font-size: 46px;
 	color: #53c4da;
 }
 
@@ -1160,10 +1159,10 @@ label.cbx {
 /* Responsive
 ==================================== */
 
-@media (max-width: 767px) {	
+@media (max-width: 767px) {
 	/* Footer
 	==================================== */
-	footer #copy {		
+	footer #copy {
 		text-align: left;
 		margin-bottom: 25px;
 	}
@@ -1172,13 +1171,13 @@ label.cbx {
 	}
 }
 
-@media (max-width: 991px) {		
+@media (max-width: 991px) {
 	/* Header
 	==================================== */
-	header.main-header.sticky {		
+	header.main-header.sticky {
 		position: static;
 	}
-	header .container {	
+	header .container {
 		width: 100% !important;
 		margin-right: auto !important;
 		margin-left: auto !important;
@@ -1190,12 +1189,12 @@ label.cbx {
 	/* Header Menu Chevron Down */
 	.main-menu a i {
 		display: none;
-	}	
+	}
 	/* Header Icons */
-	ul#menuIcons {		
+	ul#menuIcons {
 		right: 0;
 		top: 2px;
-	}	
+	}
 	/* Logo */
 	#logo {
 		position: relative;
@@ -1205,9 +1204,9 @@ label.cbx {
 	==================================== */
 	.sub-header {
 		margin-top: 0;
-	}		
+	}
 	/* Containers
-	==================================== */		
+	==================================== */
 	.contact {
 		padding: 15px 0 0 0;
 	}
@@ -1215,6 +1214,6 @@ label.cbx {
 	==================================== */
 	.contact-box {
 		margin-top: 15px;
-	}	
-	
+	}
+
 }

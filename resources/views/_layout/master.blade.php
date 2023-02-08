@@ -12,7 +12,7 @@
 <!-- Page -->
 <div id="page">
     <!-- Header -->
-    @include('_layout.header')
+{{--    @include('_layout.header')--}}
     <!-- Header End -->
 
     <!-- Sub Header -->
