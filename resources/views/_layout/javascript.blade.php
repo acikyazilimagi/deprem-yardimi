@@ -1,33 +1,11 @@
-<!-- Back to top button -->
-<div id="toTop"><i class="fa fa-chevron-up"></i></div>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Vendor Javascript Files -->
-<script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/vendor/easing/js/easing.min.js')}}"></script>
-<script src="{{asset('assets/vendor/parsley/js/parsley.min.js')}}"></script>
-<script src="{{asset('assets/vendor/theia-sticky-sidebar/js/ResizeSensor.min.js')}}"></script>
-<script src="{{asset('assets/vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js')}}"></script>
-<script src="{{asset('assets/vendor/mmenu/js/mmenu.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/js/filepond-plugin-file-validate-size.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/js/filepond-plugin-file-validate-type.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/js/filepond.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script async src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script async src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script async src="{{ asset('/assets/js/app.js') . '?t=' . mt_rand()  }}"></script>
 
 @yield('js_vendor')
-
-<!-- Main Javascript File -->
-<script src="{{ ('/assets/js/scripts.js') }}"></script>
-<script>
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-    $('.select2').select2({
-      theme: 'bootstrap-5',
-        width: '100%'
-    });
-  });
-</script>
 
 <script>
   @if(Session::has('success'))
@@ -48,4 +26,9 @@
     })
   @endif
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+@livewireScripts
+
 @yield('js_page')
+@stack('js')

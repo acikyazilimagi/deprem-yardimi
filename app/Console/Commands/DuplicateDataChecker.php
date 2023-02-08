@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Resources\DataResource;
 use App\Models\Data;
 use Illuminate\Console\Command;
-use App\Http\Resources\DataResource;
 
 class DuplicateDataChecker extends Command
 {
@@ -27,19 +27,19 @@ class DuplicateDataChecker extends Command
      *
      * @return int
      */
-
     protected array $datas = [];
+
     protected $last_duplicate_data_check_id = null;
 
     public function handle()
     {
         $setting_key = 'last-duplicate-data-check-id';
 
-        # Geçici olarak kapalı. Kararlaştırıldıktan sonra aktif edilecek.
+        // Geçici olarak kapalı. Kararlaştırıldıktan sonra aktif edilecek.
         //$this->last_duplicate_data_check_id = config($setting_key);
 
         $query = Data::query();
-        if (!empty($this->last_duplicate_data_check_id)) {
+        if (! empty($this->last_duplicate_data_check_id)) {
             $query = Data::where('id', '>', $this->last_duplicate_data_check_id)->get();
         } else {
             $query = Data::all();
@@ -50,17 +50,17 @@ class DuplicateDataChecker extends Command
             $this->datas[$item->id] = (new DataResource($item))->jsonSerialize();
         });
 
-        $this->line("Total data: " . count($this->datas), "fg=green");
+        $this->line('Total data: '.count($this->datas), 'fg=green');
 
         //Dataların içerisinde duplicate veriler bulunarak siliniyor.
         collect($this->datas)->duplicatesStrict()->each(function ($item, $key) {
             if (Data::find($key)->delete()) {
-                $this->line("ID: $key | Duplicate data deleted...", "fg=red");
+                $this->line("ID: $key | Duplicate data deleted...", 'fg=red');
                 $this->last_duplicate_data_check_id = $key;
             }
         });
 
-        # Geçici olarak kapalı. Kararlaştırıldıktan sonra aktif edilecek.
+        // Geçici olarak kapalı. Kararlaştırıldıktan sonra aktif edilecek.
         // if(!empty($this->last_duplicate_data_check_id)) {
         //     Setting::updateOrCreate(
         //         [
@@ -69,9 +69,9 @@ class DuplicateDataChecker extends Command
         //         [
         //             'value' => $this->last_duplicate_data_check_id
         //         ]
-        //     );    
+        //     );
         // }
-        
+
         return Command::SUCCESS;
     }
 }

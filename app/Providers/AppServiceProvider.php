@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,5 +36,10 @@ class AppServiceProvider extends ServiceProvider
                 config($settings);
             }
         }
+
+        Collection::macro('selectOptions', fn () => $this->map(fn ($value) => [
+            'value' => $value,
+            'text' => $value,
+        ]));
     }
 }
