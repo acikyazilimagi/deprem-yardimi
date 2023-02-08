@@ -59,22 +59,43 @@ class DashboardController extends Controller
 
     return Datatables::of($query)
       ->addColumn("city", function($row) {
-        return $row?->city . " / " . $row?->district . " / " . $row?->street;
+        return $row->city . " / " . $row->district . " / " . $row->street;
       })
       ->addColumn("address", function($row) {
-        return $row?->street2 . " " . $row?->apartment . " / No: " . $row?->apartment_no . " Kat: " . $row?->apartment_floor;
+        return $row->street2 . " " . $row->apartment . " / No: " . $row->apartment_no . " Kat: " . $row->apartment_floor;
       })
       ->addColumn("address_detail", function($row) {
-        return $row?->address;
+        return $row->address;
       })
       ->addColumn("fullname", function($row) {
-        return $row?->fullname;
+        return $row->fullname;
       })
       ->filterColumn('fullname', function($query, $keyword) {
-        $query->whereRaw("fullname LIKE ?", ["%{$keyword}%"])
-              ->orWhereRaw("address LIKE ?", ["%{$keyword}%"]);
+        $query->where(function($query) use ($keyword) {
+          $query->where("fullname", "like", "%{$keyword}%")
+                ->orWhere("address", "like", "%{$keyword}%");
+        });
       })
       ->make(true);
+
+    // return Datatables::of($query)
+    //   ->addColumn("city", function($row) {
+    //     return $row?->city . " / " . $row?->district . " / " . $row?->street;
+    //   })
+    //   ->addColumn("address", function($row) {
+    //     return $row?->street2 . " " . $row?->apartment . " / No: " . $row?->apartment_no . " Kat: " . $row?->apartment_floor;
+    //   })
+    //   ->addColumn("address_detail", function($row) {
+    //     return $row?->address;
+    //   })
+    //   ->addColumn("fullname", function($row) {
+    //     return $row?->fullname;
+    //   })
+    //   ->filterColumn('fullname', function($query, $keyword) {
+    //     $query->whereRaw("fullname LIKE ?", ["%{$keyword}%"])
+    //           ->orWhereRaw("address LIKE ?", ["%{$keyword}%"]);
+    //   })
+    //   ->make(true);
   }
 
   public function list(Request $request)
