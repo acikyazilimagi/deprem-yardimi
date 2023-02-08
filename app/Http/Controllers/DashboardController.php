@@ -37,8 +37,14 @@ class DashboardController extends Controller
                 return $row?->fullname;
             })
             ->filterColumn('fullname', function ($query, $keyword) {
-                $query->whereRaw('fullname LIKE ?', ["%{$keyword}%"])
-                    ->orWhereRaw('address LIKE ?', ["%{$keyword}%"]);
+                $query
+                    ->where("fullname", "like", "%{$keyword}%")
+                    ->orWhere("address", "like", "%{$keyword}%")
+                    ->orWhere("city", "like", "%{$keyword}%")
+                    ->orWhere("district", "like", "%{$keyword}%")
+                    ->orWhere("street", "like", "%{$keyword}%")
+                    ->orWhere("address_detail", "like", "%{$keyword}%")
+                ;
             })
             ->make(true);
     }
