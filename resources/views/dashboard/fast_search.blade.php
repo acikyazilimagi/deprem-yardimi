@@ -21,6 +21,10 @@
 @section('js_page')
     <script>
         $(document).ready(function () {
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            return text.replace(urlRegex, function(url) {
+                return '<a href="' + url + '">' + url + '</a>';
+            })
             $('#datatable').DataTable({
                 processing: true,
                 serverSide: true,
@@ -28,7 +32,12 @@
                 columns: [
                     {data: 'city'},
                     {data: 'address'},
-                    {data: 'address_detail'},
+                    {data: 'address_detail', 'fnCreatedCell': function (nTd, sData, oData, iRow, iCol) {
+                            const linkedContent = oData.address_detail.replace(urlRegex, function(url) {
+                                return '<a href="' + url + '" title="' + url + '">' + url + '</a>';
+                            });
+                            $(nTd).html(linkedContent);
+                    }},
                     {data: 'maps_link', 'fnCreatedCell': function (nTd, sData, oData, iRow, iCol) {
                             if(oData.maps_link){
                                 if(/https?/.test(oData.maps_link)){

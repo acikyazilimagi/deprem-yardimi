@@ -16,7 +16,8 @@ Author URL: https://codecanyon.net/user/ultimatewebsolutions/
 08. CONTACT INFO
 09. BACK TO TOP
 10. SUCCESS SUBMIT
-11. RESPONSIVE
+11. TABLE
+12. RESPONSIVE
 
 /* Preloader
 ==================================== */
@@ -634,6 +635,12 @@ label.cbx {
 .icon-order-success svg circle {
 	-webkit-animation: checkmark-circle 0.6s ease-in-out backwards;
 	animation: checkmark-circle 0.6s ease-in-out backwards
+}
+
+/* Table
+==================================== */
+.dataTable tbody td a {
+	word-break: break-all;
 }
 
 /* Responsive
