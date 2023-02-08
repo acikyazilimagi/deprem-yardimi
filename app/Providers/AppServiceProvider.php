@@ -30,9 +30,11 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
 
-        if (Schema::hasTable('settings')) {
-            $settings = Setting::pluck('value', 'meta')->toArray();
-            config($settings);
+        if (! $this->app->runningInConsole()) {
+            if (Schema::hasTable('settings')) {
+                $settings = Setting::pluck('value', 'meta')->toArray();
+                config($settings);
+            }
         }
 
         Collection::macro('selectOptions', fn () => $this->map(fn ($value) => [

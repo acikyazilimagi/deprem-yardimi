@@ -18,12 +18,13 @@
 @yield('js_vendor')
 
 <!-- Main Javascript File -->
-<script src="{{ ('assets/js/scripts.js') }}"></script>
+<script src="{{ ('/assets/js/scripts.js') }}"></script>
 <script>
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $('.select2').select2({
-      theme: 'bootstrap-5'
+      theme: 'bootstrap-5',
+        width: '100%'
     });
   });
 </script>
