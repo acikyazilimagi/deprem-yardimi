@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class FilterController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $cities = Location::select('city')->groupBy('city')->get();
         $data = [
-            'cities' => $cities
+            'cities' => $cities,
+            'filter_city' => $request->get('city')
         ];
         return view('filter.index', $data);
     }

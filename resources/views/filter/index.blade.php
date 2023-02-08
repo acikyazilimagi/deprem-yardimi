@@ -128,6 +128,8 @@
                 });
 
             })
+
+            $('#city').trigger('change');
         })
     </script>
 @endsection
@@ -136,6 +138,9 @@
     <input type="hidden" id="token">
     <div class="container">
         <div class="col-12 mb-3">
+         @if(!empty($filter_city)) 
+           <div class="alert alert-warning" role="alert">Lütfen <b>İlçe</b> seçiniz ve <b>Ara</b> butonuna tıklayınız.</div>
+         @endif
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -145,7 +150,9 @@
                                 <select id="city" class="form-control" name="city" required>
                                     <option value="">İl Seçiniz.</option>
                                     @foreach($cities as $city)
-                                        <option value="{{$city->city}}">{{$city->city}}</option>
+                                        <option value="{{$city->city}}" 
+                                        {{ mb_strtolower($filter_city) === mb_strtolower($city->city) ?  'selected="selected"' : '' }}
+                                        >{{$city->city}}</option>
                                     @endforeach
                                 </select>
                             </div>
