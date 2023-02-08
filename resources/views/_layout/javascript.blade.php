@@ -2,7 +2,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script async src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script async src="{{ ('/assets/js/scripts.js') }}"></script>
+<script async src="{{ ('/assets/js/scripts.js') . '?t=' . mt_rand()  }}"></script>
 
 @yield('js_vendor')
 
