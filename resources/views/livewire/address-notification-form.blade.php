@@ -112,6 +112,12 @@
                 <input class="form-control" wire:model="directions" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
             </div>
         </div>
+        <div class="col-md-12">
+            <div class="form-group mb-0">
+                <label for="aydinlatma_metni"><input type="checkbox" id="aydinlatma_metni" required> Aydınlatma Metni'ni okudum ve kabul ediyorum</label>
+            </div>
+            <div class="text-danger font-weight-bold mb-3">Enkaz, yıkım, yardım ve destek ihtiyaçları konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim. </div>
+        </div>
 
         <div class="col-12">
             <div class="row">
