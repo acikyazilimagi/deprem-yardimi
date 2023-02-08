@@ -18,7 +18,7 @@
         <h2>Kayıtlı Yardım Talepleri</h2>
         <div style="gap: 5px;">
             @foreach($cityList as $cityName)
-                <a href="#" class="btn btn-sm btn-outline-light mb-1">{{ $cityName?->city }} ({{ $cityName?->countCityData() }})</a>
+                <span class="btn btn-sm btn-outline-light mb-1 text-dark">{{ $cityName?->city }} ({{ $cityName?->countCityData() }})</span>
             @endforeach
         </div>
     </div>
