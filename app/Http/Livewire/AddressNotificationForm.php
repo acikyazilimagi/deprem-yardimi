@@ -107,6 +107,7 @@ class AddressNotificationForm extends Component
             'address' => $this->directions,
             'fullname' => $this->nameSurname,
             'source' => $this->source,
+            'ip' => request()->ip()
         ]);
 
         Cache::forget('cities_');
