@@ -8,6 +8,7 @@
   <div class="container">
       <div class="col-12 d-flex justify-content-between header-menu">
           <a href="{{route('dashboard')}}" class="btn btn-danger text-white">Deprem Yardım Bildirimi</a>
+          <a href="{{route('fast_search')}}" class="btn btn-success ml-3 text-white">Yardım İsteyenler</a>
           <a href="{{route('filter.index')}}" class="btn btn-warning ml-3 text-white">Detaylı Filtre</a>
       </div>
   </div>

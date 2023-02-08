@@ -9,14 +9,13 @@ use Yajra\DataTables\Facades\DataTables;
 
 class DashboardController extends Controller
 {
-    private $mainFolder = 'dashboard';
-
     public function index(Request $request)
     {
-        $data['mainFolder'] = $this->mainFolder;
-        $data['cityList'] = Data::select('city')->distinct('address')->groupBy('city')->get();
+        $data = [
+            'cityList' => Data::select('city')->distinct('address')->groupBy('city')->get()
+        ];
 
-        return view("{$this->mainFolder}.index", $data);
+        return view("dashboard.index", $data);
     }
 
     public function datatable(Request $request)
@@ -77,4 +76,10 @@ class DashboardController extends Controller
             'data' => $streets,
         ]);
     }
+
+    public function fast_search(Request $request)
+    {
+        return view("dashboard.fast_search");
+    }
+
 }
