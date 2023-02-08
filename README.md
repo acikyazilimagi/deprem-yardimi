@@ -15,6 +15,10 @@ Katkıda bulunmak için:
 -   [Laravel 9](https://laravel.com/)
 -   [MySQL 10](https://www.mysql.com/)
 -   [aws Amazon](https://aws.amazon.com/)
+-   Python
+-   Go
+-   PG
+-   Redis
 
 ## Başlangıç
 
