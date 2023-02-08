@@ -1,19 +1,78 @@
 <div id="contactInfoContainer" class="theiaStickySidebar">
     <div class="contact-box">
         <i class="icon icon-phone-call2"></i>
-        <h2 class="text-danger" style="font-size: 25px"><strong>184'ü arayın ve 2 -> 2 -> 1 tuşlarına basın</strong></h2>
+        <h2 class="text-danger" style="font-size: 25px"><strong>184'ü arayın ve <br> 2 -> 2 -> 1 <br> tuşlarına basın</strong></h2>
         <h2>AFAD Numaraları</h2>
-        <span class="font-weight-bold">Adana:</span> <a href="tel:+903222272854">0322 227 2854</a><br>
-        <span class="font-weight-bold">Adıyaman:</span> <a href="tel:+904162161231">0416 216 1231</a><br>
-        <span class="font-weight-bold">Diyarbakır:</span> <a href="tel:+904123261156">0412 326 1156</a><br>
-        <span class="font-weight-bold">Gaziantep:</span> <a href="tel:+903424281118">0342 428 1118</a><br>
-        <span class="font-weight-bold">Hatay:</span> <a href="tel:+903261120000">0326 112 0000</a><br>
-        <span class="font-weight-bold">Kahramanmaraş:</span> <a href="tel:+903442214991">0344 221 4991</a><br>
-        <span class="font-weight-bold">Kilis:</span> <a href="tel:+903488134478">0348 813 44 78</a>
-        <span class="font-weight-bold">Malatya:</span> <a href="tel:+904222128432">0422 212 8432</a><br>
-        <span class="font-weight-bold">Mardin:</span> <a href="tel:+904822123740">0482 212 3740</a><br>
-        <span class="font-weight-bold">Osmaniye:</span> <a href="tel:+903288252080">0328 825 20 80</a>
-        <span class="font-weight-bold">Şanlıurfa:</span> <a href="tel:+904143137290">0414 313 7290</a><br>
+        <table class="table table-bordered table-striped table-sm mb-0">
+            <tbody>
+                <tr>
+                    <td class="text-right pr-3">Adana </td>
+                    <td>
+                        <a href="tel:+903222272854">0 322 227 28 54</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Adıyaman </td>
+                    <td>
+                        <a href="tel:+904162161231">0 416 216 12 31</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Diyarbakır </td>
+                    <td>
+                        <a href="tel:+904123261156">0 412 326 11 56</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Gaziantep </td>
+                    <td>
+                        <a href="tel:+903424281118">0 342 428 11 18</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Hatay </td>
+                    <td>
+                        <a href="tel:+903261120000">0 326 112 00 00</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Kahramanmaraş </td>
+                    <td>
+                        <a href="tel:+903442214991">0 344 221 49 91</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Kilis </td>
+                    <td>
+                        <a href="tel:+903488134478">0 348 813 44 78</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Malatya </td>
+                    <td>
+                        <a href="tel:+904223242898">0 422 324 28 98</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Mardin </td>
+                    <td>
+                        <a href="tel:+904822123740">0 482 212 37 40</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Osmaniye </td>
+                    <td>
+                        <a href="tel:+903288252080">0 328 825 20 80</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right pr-3">Şanlıurfa </td>
+                    <td>
+                        <a href="tel:+904143137290">0 414 313 72 90</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="contact-box">
