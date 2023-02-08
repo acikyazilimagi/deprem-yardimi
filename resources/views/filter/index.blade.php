@@ -69,7 +69,6 @@
 
                 const $this = this
 
-                $($this).attr('disabled', 'disabled')
 
                 const city = $('#city').val()
                 const district = $('#district').val()
@@ -81,6 +80,8 @@
                     alert("İl ve İlçe seçmeden arama yapamazsınız !")
                     return false
                 }
+
+                $($this).attr('disabled', 'disabled')
 
                 $.ajax({
                     url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token,
@@ -181,18 +182,20 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <table id="filter_table" class="table table-responsive table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>İl/İlçe/Mahalle</th>
-                                <th>Adres Bilgisi</th>
-                                <th>Adres Tarifi</th>
-                                <th>Ad Soyad</th>
-                                <th>Kaynak</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table id="filter_table" class="table table-striped table-bordered w-100">
+                            <thead>
+                                <tr>
+                                    <th>İl/İlçe/Mahalle</th>
+                                    <th>Adres Bilgisi</th>
+                                    <th>Adres Tarifi</th>
+                                    <th>Ad Soyad</th>
+                                    <th>Kaynak</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
