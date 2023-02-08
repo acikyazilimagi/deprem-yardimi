@@ -69,7 +69,6 @@
 
                 const $this = this
 
-                $($this).attr('disabled', 'disabled')
 
                 const city = $('#city').val()
                 const district = $('#district').val()
@@ -81,6 +80,8 @@
                     alert("İl ve İlçe seçmeden arama yapamazsınız !")
                     return false
                 }
+
+                $($this).attr('disabled', 'disabled')
 
                 $.ajax({
                     url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token,
