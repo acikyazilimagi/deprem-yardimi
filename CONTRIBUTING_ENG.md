@@ -22,7 +22,7 @@ Requirements:
 
 ```bash
 # Clone the project
-git clone
+git clone https://github.com/acikkaynak/deprem-yardimi.git
 
 # Move to project directory
 cd deprem-yardimi
