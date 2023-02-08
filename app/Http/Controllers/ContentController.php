@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ContentController extends Controller
 {
     public function index()
     {
-
-        $url = "https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json";
+        $url = 'https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json';
         $json = file_get_contents($url);
         $data = json_decode($json, true);
-        $options  = $data['options'];
+        $options = $data['options'];
 
         foreach ($options as $option) {
             //get name or name_tr
@@ -28,32 +25,22 @@ class ContentController extends Controller
                 'name' => $menu_name,
                 'slug' => $menu_slug,
             ];
-            
-            
         }
 
-
         return view('content.index', compact('menus'));
- 
     }
 
     public function geciciBarinma()
     {
-        $url = "https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json";
+        $url = 'https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json';
         $json = file_get_contents($url);
 
         $data = json_decode($json, true);
-        $options  = $data['options'];
+        $options = $data['options'];
 
-        //All data from gecici barinma 
+        //All data from gecici barinma
         $geciciBarinma = $options[0]['value']['options'];
-    
-
-
 
         return view('content.gecici-barinma-alanlari', compact('geciciBarinma'));
     }
-
-
-
 }
