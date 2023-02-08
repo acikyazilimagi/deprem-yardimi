@@ -27,6 +27,9 @@ class DashboardController extends Controller
             ->addColumn('city', function ($row) {
                 return $row?->city.' / '.$row?->district.' / '.$row?->street;
             })
+            ->addColumn('city_raw', function ($row) {
+                return $row?->city;
+            })
             ->addColumn('address', function ($row) {
                 return $row?->street2.' '.$row?->apartment.' / No: '.$row?->apartment_no.' Kat: '.$row?->apartment_floor;
             })
@@ -35,6 +38,9 @@ class DashboardController extends Controller
             })
             ->addColumn('fullname', function ($row) {
                 return $row?->fullname;
+            })
+            ->addColumn('maps_link', function ($row) {
+                return $row?->maps_link;
             })
             ->filterColumn('fullname', function ($query, $keyword) {
                 $query
