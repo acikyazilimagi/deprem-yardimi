@@ -29,7 +29,7 @@
             </main>
             @include('_layout.footer')
         </div>
-        <div id="toTop"><i class="fa fa-chevron-up"></i></div>
+        <div id="toTop">YIKARI</div>
         @include('_layout.javascript')
     </body>
 </html>

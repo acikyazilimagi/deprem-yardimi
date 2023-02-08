@@ -9,8 +9,9 @@
     <meta name="keywords" content="deprem,yardım,yardim,cagri,göçük,gocuk,kahramanmaraş,kahramanmaras,maraş,maras,hatay,diyarbakır,diyarbakir,adıyaman,adiyaman,kilis,osmaniye,malatya,şanlıurfa,sanlıurfa,urfa,gaziantep,antep,adana,ailem,bebek,çocuk,bina,yıkıldı,afad,kurtarma">
 
     <link rel=canonical href=https://depremyardim.com/ />
-    <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
     <link href="{{asset('assets/css/style.css') . '?t=' . mt_rand() }}" rel="stylesheet">
 
