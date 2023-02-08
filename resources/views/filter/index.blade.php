@@ -77,6 +77,11 @@
                 const keyword = $('#keyword').val()
                 const token = $('#token').val()
 
+                if(!(city.length && district.length)){
+                    alert("İl ve İlçe seçmeden arama yapamazsınız !")
+                    return false
+                }
+
                 $.ajax({
                     url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token,
                     type: "POST",
@@ -94,17 +99,25 @@
 
                         $('#filter_table > tbody').html('')
 
-                        data.data.forEach(item => {
+                        if(data.data.length){
+                            data.data.forEach(item => {
+                                $('#filter_table > tbody').append(
+                                    '<tr>' +
+                                    '    <td>' + item.city.toString() + '/' + item.district.toString() + '/' + item.street.toString() + ' <br /> Oluşturulma : ' + item.created_at + '</td>' +
+                                    '    <td>' + item.street2 + '/' + item.apartment + '/' + item.apartment_no + '/' + item.apartment_floor  + '</td>' +
+                                    '    <td>' + item.address + '</td>' +
+                                    '    <td>' + item.fullname + '</td>' +
+                                    '    <td>' + item.source + '</td>' +
+                                    '</tr>'
+                                )
+                            })
+                        }else{
                             $('#filter_table > tbody').append(
                                 '<tr>' +
-                                '    <td>' + item.city + '/' + item.district + '/' + item.street + '</td>' +
-                                '    <td>' + item.street2 + '/' + item.apartment + '/' + item.apartment_no + '/' + item.apartment_floor  + '</td>' +
-                                '    <td>' + item.address + '</td>' +
-                                '    <td>' + item.fullname + '</td>' +
-                                '    <td>' + item.source + '</td>' +
+                                '    <td colspan="5">Herhangi bir veri bulunamadı !</td>' +
                                 '</tr>'
                             )
-                        })
+                        }
                     },
                     error: function (err) {
                         $($this).removeAttr('disabled')
@@ -128,7 +141,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="city">İl (Zorunlu)</label>
-                                <select id="city" class="form-control select2" name="city" required>
+                                <select id="city" class="form-control" name="city" required>
                                     <option value="">İl Seçiniz.</option>
                                     @foreach($cities as $city)
                                         <option value="{{$city->city}}">{{$city->city}}</option>
@@ -139,14 +152,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="district">İlçe (Zorunlu)</label>
-                                <select id="district" class="form-control select2" name="district" required>
+                                <select id="district" class="form-control" name="district" required>
                                     <option value="">İlçe Seçiniz.</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select id="street" class="form-control select2" name="street" required>
+                                <select id="street" class="form-control" name="street" required>
                                     <option value="">Mahalle Seçiniz.</option>
                                 </select>
                             </div>
@@ -158,7 +171,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button id="search" class="btn btn-success btn-block">Ara</button>
+                                <button type="submit" id="search" class="btn btn-success btn-block">Ara</button>
                             </div>
                         </div>
                     </div>
