@@ -3,6 +3,8 @@
 <script async src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
+<script async src="{{ asset('/assets/js/app.js') . '?t=' . mt_rand()  }}"></script>
+
 @yield('js_vendor')
 
 <script>
