@@ -81,6 +81,7 @@
         },
     });
 
+/*
     $('.form_submit').on('click', function (e){
         e.preventDefault()
         const data = $(this).closest('form').serialize();
@@ -119,6 +120,7 @@
         })
 
     })
+*/
   });
 </script>
 @endsection
@@ -127,107 +129,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form id="myform" action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Adres Bildirim Formu (1 Kişi Giriniz)</h3>
-                            <p>Yardıma ihtiyacı olan kişi/kişilerin adres bilgisini giriniz.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="city">Şehir (Zorunlu)</label>
-                                <select id="city" class="form-control select2" name="city" required>
-                                    <option value="">İl Seçiniz.</option>
-                                    @foreach($cities as $city)
-                                        <option value="{{$city->city}}">{{$city->city}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="district">İlçe (Zorunlu)</label>
-                                <select id="district" class="form-control select2" name="district" required>
-                                    <option value="">İlçe Seçiniz.</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="street">Mahalle (Zorunlu)</label>
-                                <select id="street" class="form-control select2" name="street" required>
-                                    <option value="">Mahalle Seçiniz.</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="source">Bilgi Kaynağı (Zorunlu)</label>
-                                <input id="source" class="form-control" name="source" placeholder="Bilginin Kaynağını Giriniz (Zorunlu)" type="text" required/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="street2">Sokak</label>
-                                <input id="street2" class="form-control" name="street2" placeholder="Sokak Adını Giriniz." type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="apartment">Apartman (Zorunlu)</label>
-                                <input id="apartment" class="form-control" name="apartment_name" placeholder="Apartman veya Bina Adı Giriniz." type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="apartment_no">Bina Dış Kapı No</label>
-                                <input id="apartment_no" class="form-control" name="apartment_no" placeholder="Bina Dışa Kapı No. Giriniz." type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="apartment_floor">Bulunan Kat</label>
-                                <input id="apartment_floor" class="form-control" name="apartment_floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="fullname">Ad ve Soyad</label>
-                                <input id="fullname" class="form-control" name="fullname" placeholder="Ad ve Soyad Giriniz (Zorunlu Değil)" type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Telefon No</label>
-                                <input id="phone" class="form-control" name="phone" placeholder="Telefon No. Giriniz (Zorunlu Değil)" type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="address">Adres Tarifi</label>
-                                <input id="address" class="form-control" name="address" placeholder="Bulunan Konumu Tarif Etmek İsterseniz Buraya Giriniz" type="text"/>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12 col-md-3">
-                                    <button type="reset" name="submit" id="form_reset" class="btn btn-block btn-danger">
-                                        <span class="btn-form-func-content">Temizle</span>
-                                        <span class="icon"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
-                                    </button>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <button type="button" name="submit" data-type="save" class="form_submit btn btn-block btn-info">
-                                        <span class="btn-form-func-content">Kaydet</span>
-                                        <span class="icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <livewire:address-notification-form/>
             </div>
         </div>
     </div>
