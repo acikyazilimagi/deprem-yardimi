@@ -31,7 +31,7 @@
                     {data: 'address'},
                     {data: 'address_detail', 'fnCreatedCell': function (nTd, sData, oData, iRow, iCol) {
                             const linkedContent = oData.address_detail.replace(urlRegex, function(url) {
-                                return '<a href="' + url + '" title="' + url + '">' + url + '</a>';
+                                return '<a href="' + url + '" title="' + url + '" target="_blank">' +  url.substring(0, 35) + '...' + '</a>';
                             });
                             $(nTd).html(linkedContent);
                     }},

@@ -641,6 +641,10 @@ label.cbx {
 ==================================== */
 .dataTable tbody td a {
 	word-break: break-all;
+    color: #53c4da;
+}
+.dataTable tbody td a:visited {
+    color: #53c4da;
 }
 
 /* Responsive
