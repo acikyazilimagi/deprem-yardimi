@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('editor');
-
 Route::prefix('/')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/liste', [DashboardController::class, 'list'])->name('dashboard.list');

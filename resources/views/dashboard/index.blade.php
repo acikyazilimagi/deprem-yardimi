@@ -81,46 +81,6 @@
         },
     });
 
-/*
-    $('.form_submit').on('click', function (e){
-        e.preventDefault()
-        const data = $(this).closest('form').serialize();
-
-        // TODO : 422 response dönünce swal ile mesaj verilmeli
-
-        $.ajax({
-            url: '{{ route('dashboard.store') }}',
-            data: data,
-            type: 'POST',
-            success: function (res) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: res.data.status,
-                    title: res.data.title,
-                    html: res.data.message,
-                    showConfirmButton: false,
-                    timer: 2500
-                })
-                $('#form_reset').click()
-
-                $('#city').val(null).trigger('change');
-                $('#district').val(null).trigger('change');
-                $('#street').val(null).trigger('change');
-            },
-            error: function (res) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: res.data.status,
-                    title: res.data.title,
-                    body: res.data.message,
-                    showConfirmButton: false,
-                    timer: 2500
-                })
-            },
-        })
-
-    })
-*/
   });
 </script>
 @endsection
