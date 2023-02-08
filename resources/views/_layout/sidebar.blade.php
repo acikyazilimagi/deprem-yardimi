@@ -1,6 +1,7 @@
 <div id="contactInfoContainer" class="theiaStickySidebar">
     <div class="contact-box">
         <i class="icon icon-phone-call2"></i>
+        <h2 class="text-danger" style="font-size: 25px"><strong>184'ü arayın ve 2 -> 2 -> 1 tuşlarına basın</strong></h2>
         <h2>AFAD Numaraları</h2>
         <span class="font-weight-bold">Diyarbakır:</span> <a href="tel:+904123261156">0412 326 1156</a><br>
         <span class="font-weight-bold">Hatay:</span> <a href="tel:+903261120000">0326 112 0000</a><br>
