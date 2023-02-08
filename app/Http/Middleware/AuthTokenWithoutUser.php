@@ -22,12 +22,12 @@ class AuthTokenWithoutUser
 
             // Geliştirici ekip..
             if (in_array($token, $AUTH_KEY_STATIC_TOKENS)){
-                return $next($request);
+                return $response;
             }
 
             // Diğer kullanıcılar..
             if(Cache::pull('token:' . $token)) {
-                return $next($request);
+                return $response;
             }
 
             return response()->json(['message' => 'Access denied'], 403);
