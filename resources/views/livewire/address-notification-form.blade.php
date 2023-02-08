@@ -12,7 +12,7 @@
         @endphp
         <div class="col-md-6">
             <div class="form-group">
-                <label for="city">Şehir (Zorunlu)</label>
+                <label for="city">İl (Zorunlu)</label>
                 <input @class(['is-invalid' => $errors->has('city')]) type="text" placeholder="İl Seçiniz" wire:model.lazy="city" x-data="select({
                     options: @js($cities)
                 })">
