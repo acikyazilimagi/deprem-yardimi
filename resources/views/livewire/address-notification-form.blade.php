@@ -91,7 +91,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apartment_floor">Bulunan Kat</label>
-                <input class="form-control" wire:model.defer="floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text"/>
+                <input class="form-control" wire:model.defer="floor" placeholder="Bulunan Kat Sayısını Giriniz." type="number"/>
             </div>
         </div>
         <div class="col-md-6">
