@@ -639,7 +639,7 @@ label.cbx {
 
 /* Table
 ==================================== */
-#dataTable tbody td a {
+table tbody td a {
 	word-break: break-all;
 }
 
