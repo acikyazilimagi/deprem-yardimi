@@ -101,7 +101,7 @@ class AddressNotificationForm extends Component
             'street2' => $this->street,
             'apartment' => $this->apartment,
             'apartment_no' => $this->apartmentNo,
-            'apartment_floor' => $this->floor,
+            'apartment_floor' => intval($this->floor),
             'phone' => $this->phoneNumber,
             'address' => $this->directions,
             'fullname' => $this->nameSurname,
