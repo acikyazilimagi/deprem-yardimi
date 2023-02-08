@@ -91,7 +91,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apartment_floor">Bulunan Kat</label>
-                <input class="form-control" wire:model.defer="floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text"/>
+                <input class="form-control" wire:model.defer="floor" placeholder="Bulunan Kat Sayısını Giriniz." type="text" id="address_form_floor"/>
             </div>
         </div>
         <div class="col-md-6">
@@ -103,7 +103,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="phone">Telefon No</label>
-                <input class="form-control" wire:model.defer="phoneNumber" placeholder="Telefon No. Giriniz (Zorunlu Değil)" type="text"/>
+                <input class="form-control" wire:model.defer="phoneNumber" placeholder="0 555 555 55 55 Şeklinde Giriniz.." type="tel" name="phone" id="address_form_phone" />
             </div>
         </div>
         <div class="col-md-12">
