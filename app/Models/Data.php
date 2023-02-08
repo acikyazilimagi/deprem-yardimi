@@ -21,6 +21,10 @@ class Data extends Model
         'source',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:d.m.Y H:i'
+    ];
+
     use HasFactory;
 
     public function countCityData()
