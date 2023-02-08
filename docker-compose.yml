@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+    SERVICE___APP:
+        image: acikkaynak/deprem-yardimi
+        container_name: CONTAINER___APP
+        restart: always
+        hostname: SERVICE___APP
+        ports:
+            - "8001:80"
+        env_file:
+            - .env
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+
+    SERVICE___DB:
+        image: 'mariadb:10'
+        container_name: 'SERVICE___DB'
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: 'db'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - 'SERVICE___DB:/var/lib/mysql'
+
+volumes:
+    SERVICE___APP:
+        name: SERVICE___APP
+    SERVICE___DB:
+        name: SERVICE___DB
