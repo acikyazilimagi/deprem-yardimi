@@ -57,5 +57,3 @@ You can open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser and 
 ### 8. API Usage:
 
 The keys needed by the teams entering data are sent to the team leads by us.
-
-Translated with www.DeepL.com/Translator (free version)
