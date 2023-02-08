@@ -62,7 +62,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="street2">Sokak</label>
+                <label for="street2">Sokak (Zorunlu)</label>
                 <input @class(['form-control', 'is-invalid' => $errors->has('street')]) wire:model.defer="street" placeholder="Sokak Adını Giriniz." type="text"/>
                 @error('street')
                 <div class="invalid-feedback">
@@ -73,7 +73,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="apartment">Apartman</label>
+                <label for="apartment">Apartman (Zorunlu)</label>
                 <input @class(['form-control', 'is-invalid' => $errors->has('apartment')]) wire:model.defer="apartment" placeholder="Apartman veya Bina Adı Giriniz." type="text"/>
                 @error('apartment')
                 <div class="invalid-feedback">
