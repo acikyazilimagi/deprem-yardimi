@@ -8,8 +8,6 @@ class ContentController extends Controller
 {
     public function index()
     {
-//get content from https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json?v=1
-
 
         $url = "https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json";
         $json = file_get_contents($url);
@@ -56,17 +54,6 @@ class ContentController extends Controller
         return view('content.gecici-barinma-alanlari', compact('geciciBarinma'));
     }
 
-    public function getJsonDataFromAfetBilgiAndSaveasFile()
-    {
-        $url = "https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json";
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        $file = fopen("main-data-affet-bilgi.json", "w");
-        fwrite($file, json_encode($data));
-        fclose($file);
-    }
 
- 
 
- 
 }
