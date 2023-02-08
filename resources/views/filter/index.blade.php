@@ -81,6 +81,7 @@
                     url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token,
                     type: "POST",
                     data: {
+                        _token: "{{ csrf_token() }}",
                         city,
                         district,
                         street,
