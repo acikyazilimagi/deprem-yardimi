@@ -43,7 +43,6 @@ class DashboardController extends Controller
                     ->orWhere("city", "like", "%{$keyword}%")
                     ->orWhere("district", "like", "%{$keyword}%")
                     ->orWhere("street", "like", "%{$keyword}%")
-                    ->orWhere("address_detail", "like", "%{$keyword}%")
                 ;
             })
             ->make(true);
