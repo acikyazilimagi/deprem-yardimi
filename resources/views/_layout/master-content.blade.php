@@ -16,7 +16,6 @@
             </main>
             @include('_layout.footer')
         </div>
-        <div id="toTop">YUKARI</div>
         @include('_layout.javascript')
     </body>
 </html>
