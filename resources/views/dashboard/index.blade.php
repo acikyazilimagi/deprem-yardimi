@@ -20,23 +20,7 @@
 
 @section('js_page')
     <script>
-        function getToken() {
-            $.ajax({
-                url: "{{route('get-token')}}",
-                type: "GET",
-                success: function (data, status, xhr) {
-                    const token = xhr.getResponseHeader('X-AUTH-KEY')
-                    $('#token').val(token)
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-
         $(document).ready(function () {
-            getToken()
-
             $(document).on('change', '#city', function () {
                 const city = $(this).val();
                 $.ajax({
