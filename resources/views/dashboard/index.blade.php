@@ -114,6 +114,7 @@
                 "X-AUTH-KEY": $('#token').val()
             },
             success: function (res) {
+                getToken()
                 Swal.fire({
                     position: 'top-end',
                     icon: res.data.status,
@@ -127,8 +128,12 @@
                 $('#city').val(null).trigger('change');
                 $('#district').val(null).trigger('change');
                 $('#street').val(null).trigger('change');
+
+                $('#form-save').removeAttr('disabled')
             },
             error: function (res) {
+                getToken()
+                $('#form-save').removeAttr('disabled')
                 Swal.fire({
                     position: 'top-end',
                     icon: res.data.status,
@@ -137,9 +142,6 @@
                     showConfirmButton: false,
                     timer: 2500
                 })
-            },
-            complete: function (){
-                getToken()
             }
         })
 
@@ -155,7 +157,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <form id="myform" action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
+                <form action="{{ route('dashboard.store') }}" method="post" onsubmit="return false">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -247,7 +249,7 @@
                                     </button>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <button type="button" name="submit" data-type="save" class="form_submit btn btn-block btn-info">
+                                    <button type="button" name="submit" id="form-save" class="form_submit btn btn-block btn-info">
                                         <span class="btn-form-func-content">Kaydet</span>
                                         <span class="icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
                                     </button>
