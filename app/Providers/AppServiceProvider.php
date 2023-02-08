@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             config($settings);
         }
 
-        Collection::macro('selectOptions', fn() => $this->map(fn($value) => [
+        Collection::macro('selectOptions', fn () => $this->map(fn ($value) => [
             'value' => $value,
             'text' => $value,
         ]));

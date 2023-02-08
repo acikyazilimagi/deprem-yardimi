@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\{
-  DashboardController
+    DashboardController
 };
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +16,5 @@ use App\Http\Controllers\Api\{
 |
 */
 
-Route::get("/list", [DashboardController::class, "index"])->name("api.list");
-Route::get("/list-all", [DashboardController::class, "list_all"])->name("api.list_all");
+Route::get('/list', [DashboardController::class, 'index'])->name('api.list');
+Route::get('/list-all', [DashboardController::class, 'list_all'])->name('api.list_all');

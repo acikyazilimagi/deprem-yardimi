@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Data;
 use App\Models\Location;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Livewire\Component;
 
@@ -77,7 +76,7 @@ class AddressNotificationForm extends Component
             'street' => 'required',
             'apartment' => 'required',
         ], messages: [
-            'required' => 'Bu alan zorunludur'
+            'required' => 'Bu alan zorunludur',
         ]);
 
         try {
@@ -106,7 +105,7 @@ class AddressNotificationForm extends Component
             'phone' => $this->phoneNumber,
             'address' => $this->directions,
             'fullname' => $this->nameSurname,
-            'source' => $this->source
+            'source' => $this->source,
         ]);
 
         $this->dispatchBrowserEvent(
