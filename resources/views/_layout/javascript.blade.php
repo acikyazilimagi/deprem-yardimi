@@ -18,7 +18,7 @@
 @yield('js_vendor')
 
 <!-- Main Javascript File -->
-<script src="{{ ('assets/js/scripts.js') }}"></script>
+<script src="{{ ('/assets/js/scripts.js') }}"></script>
 <script>
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
