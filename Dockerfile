@@ -110,7 +110,7 @@ RUN \
     # Yetkiler güncelleniyor..
     && chown -R www-data:www-data vendor/ composer.lock \
     && chmod -R 755 /var/www/storage && chmod -R 755 /var/www/bootstrap \
-    && chmod +x ./deploy/entrypoint.sh \
+    && chmod +x /entrypoint.sh \
     \
     # Cache temizleme işlemleri yapılıyor.. \
     # https://stackoverflow.com/a/33427572
@@ -122,7 +122,7 @@ RUN \
     && php artisan route:clear || : \
     && php artisan view:clear || :
 
-ENTRYPOINT [ "/var/www/deploy/entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
 
 # docker build -f ./Dockerfile -t acikkaynak/deprem-yardimi:latest .
 # docker push acikkaynak/deprem-yardimi
