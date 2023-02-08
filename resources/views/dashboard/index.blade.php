@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 
     <style>
-        #datatable{
+        #datatable {
             margin: 15px 0 !important;
         }
 
-        #source::placeholder{
+        #source::placeholder {
             color: #cc6161 !important;
         }
     </style>
@@ -24,20 +24,20 @@
             $.ajax({
                 url: "{{route('get-token')}}",
                 type: "GET",
-                success: function(data, status, xhr) {
+                success: function (data, status, xhr) {
                     const token = xhr.getResponseHeader('X-AUTH-KEY')
                     $('#token').val(token)
                 },
-                error: function(err) {
+                error: function (err) {
                     console.log(err);
                 }
             });
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             getToken()
 
-            $(document).on('change', '#city', function(){
+            $(document).on('change', '#city', function () {
                 const city = $(this).val();
                 $.ajax({
                     url: "{{route('get_district')}}",
@@ -46,20 +46,20 @@
                         _token: "{{ csrf_token() }}",
                         city: city
                     },
-                    success: function(data) {
+                    success: function (data) {
                         $('#district').empty();
                         $('#district').append('<option value="">İlçe Seçiniz</option>');
-                        $.each(data.data, function(key, value) {
-                            $('#district').append('<option value="'+value.district+'">'+value.district+'</option>');
+                        $.each(data.data, function (key, value) {
+                            $('#district').append('<option value="' + value.district + '">' + value.district + '</option>');
                         });
 
                     },
-                    error: function(err) {
+                    error: function (err) {
                         console.log(err);
                     }
                 });
             });
-            $(document).on('change', '#district', function(){
+            $(document).on('change', '#district', function () {
                 const district = $(this).val();
                 $.ajax({
                     url: "{{route('get_street')}}",
@@ -68,15 +68,15 @@
                         _token: "{{ csrf_token() }}",
                         district: district
                     },
-                    success: function(data) {
+                    success: function (data) {
                         $('#street').empty();
                         $('#street').append('<option value="">Mahalle Seçiniz</option>');
-                        $.each(data.data, function(key, value) {
-                            $('#street').append('<option value="'+value.street+'">'+value.street+'</option>');
+                        $.each(data.data, function (key, value) {
+                            $('#street').append('<option value="' + value.street + '">' + value.street + '</option>');
                         });
 
                     },
-                    error: function(err) {
+                    error: function (err) {
                         console.log(err);
                     }
                 });
@@ -96,25 +96,25 @@
                     return: true,
                 },
                 language: {
-                    "sDecimal":        ",",
-                    "sEmptyTable":     "Tabloda herhangi bir veri mevcut değil",
-                    "sInfo":           "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
-                    "sInfoEmpty":      "Kayıt yok",
-                    "sInfoFiltered":   "(_MAX_ kayıt içerisinden bulunan)",
-                    "sInfoThousands":  ".",
-                    "sLengthMenu":     "Sayfada _MENU_ kayıt göster",
+                    "sDecimal": ",",
+                    "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfoEmpty": "Kayıt yok",
+                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
                     "sLoadingRecords": "Yükleniyor...",
-                    "sProcessing":     "İşleniyor...",
-                    "sSearch":         "Ara:",
-                    "sZeroRecords":    "Eşleşen kayıt bulunamadı",
+                    "sProcessing": "İşleniyor...",
+                    "sSearch": "Ara:",
+                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
                     "oPaginate": {
-                        "sFirst":    "İlk",
-                        "sLast":     "Son",
-                        "sNext":     "Sonraki",
+                        "sFirst": "İlk",
+                        "sLast": "Son",
+                        "sNext": "Sonraki",
                         "sPrevious": "Önceki"
                     },
                     "oAria": {
-                        "sSortAscending":  ": artan sütun sıralamasını aktifleştir",
+                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
                         "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
                     },
                     "select": {
@@ -127,6 +127,16 @@
                 },
             });
         });
+
+        window.addEventListener('formSubmitted', ({detail}) => {
+            if (detail.status !== 'error') {
+                // re-render table when form submitted
+                $('#datatable').DataTable()
+                    .rows()
+                    .invalidate('data')
+                    .draw(false);
+            }
+        })
     </script>
 @endsection
 
