@@ -10,18 +10,18 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary main-header">
+<nav class="navbar navbar-expand bg-body-tertiary main-header">
     <div class="container">
         <div class="collapse navbar-collapse">
             <a href="{{ route('dashboard') }}">
                 <img src="{{ asset('assets/img/logo/png/50x50.png') }}" alt="Deprem Yardım">
                 <h1 style="font-size: 16px; display: inline-block">Deprem Yardım</h1>
             </a>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
                     <a class="nav-link" href="https://discord.gg/itdepremyardim" target="_blank">
-                        <img src="https://afetharita.com/logo.svg" alt="IT Deprem Yardım Discord" width="24px">
-                        <span>IT Deprem Yardım Discord</span>
+                        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="IT Deprem Yardım Discord" width="24px">
+                        <span class="d-none d-md-inline-block">IT Deprem Yardım Discord</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -32,7 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://afetharita.com" target="_blank">
                         <img src="https://afetharita.com/logo.svg" alt="AfetHarita.com" width="24px">
-                        <span>AfetHarita.com</span>
+                        <span class="d-none d-md-inline-block">AfetHarita.com</span>
                     </a>
                 </li>
             </ul>
