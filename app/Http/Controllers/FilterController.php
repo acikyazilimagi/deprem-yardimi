@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class FilterController extends Controller
 {
     public function index(){
-        $cities = Data::select('city')->distinct('address')->groupBy('city')->get();
+        $cities = Location::select('city')->groupBy('city')->get();
         $data = [
             'cities' => $cities
         ];

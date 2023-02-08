@@ -20,23 +20,7 @@
 
 @section('js_page')
     <script>
-        function getToken() {
-            $.ajax({
-                url: "{{route('get-token')}}",
-                type: "GET",
-                success: function (data, status, xhr) {
-                    const token = xhr.getResponseHeader('X-AUTH-KEY')
-                    $('#token').val(token)
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-
         $(document).ready(function () {
-            getToken()
-
             $(document).on('change', '#city', function () {
                 const city = $(this).val();
                 $.ajax({
@@ -90,6 +74,16 @@
                     {data: 'city'},
                     {data: 'address'},
                     {data: 'address_detail'},
+                    {data: 'maps_link', 'fnCreatedCell': function (nTd, sData, oData, iRow, iCol) {
+                        if(oData.maps_link){
+                            if(/https?/.test(oData.maps_link)){
+                                $(nTd).html("<a class='text-danger' href='"+oData.maps_link+"' target='_blank'>Haritaya Git</a>");
+                            }else{
+                                let link = 'https://www.google.com/maps/place/' + oData.street + ',' + oData.district + '/' + oData.city_raw
+                                $(nTd).html("<a class='text-danger' href='"+link+"' target='_blank'>Haritaya Git</a>");
+                            }
+                        }
+                    }},
                     {data: 'fullname'},
                 ],
                 search: {
@@ -127,16 +121,6 @@
                 },
             });
         });
-
-        window.addEventListener('formSubmitted', ({detail}) => {
-            if (detail.status !== 'error') {
-                // re-render table when form submitted
-                $('#datatable').DataTable()
-                    .rows()
-                    .invalidate('data')
-                    .draw(false);
-            }
-        })
     </script>
 @endsection
 
@@ -161,6 +145,7 @@
                             <th>İl/İlçe/Mahalle</th>
                             <th>Adres Bilgisi</th>
                             <th>Adres Tarifi</th>
+                            <th>Link</th>
                             <th>Ad Soyad</th>
                         </tr>
                         </thead>
