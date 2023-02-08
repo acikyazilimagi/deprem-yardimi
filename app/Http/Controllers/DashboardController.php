@@ -5,14 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Data;
 use App\Models\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        $cities_cache_key = 'cities_';
+
+        if (Cache::has($cities_cache_key)){
+            $cities = Cache::get($cities_cache_key);
+        }else{
+            $cities = Data::select('city')->distinct('address')->groupBy('city')->get();
+            Cache::set($cities_cache_key, $cities);
+        }
+
         $data = [
-            'cityList' => Data::select('city')->distinct('address')->groupBy('city')->get()
+            'cityList' => $cities
         ];
 
         return view("dashboard.index", $data);

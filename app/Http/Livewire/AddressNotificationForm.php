@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Data;
 use App\Models\Location;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class AddressNotificationForm extends Component
@@ -107,6 +108,8 @@ class AddressNotificationForm extends Component
             'fullname' => $this->nameSurname,
             'source' => $this->source,
         ]);
+
+        Cache::forget('cities_');
 
         $this->dispatchBrowserEvent(
             'formSubmitted',
