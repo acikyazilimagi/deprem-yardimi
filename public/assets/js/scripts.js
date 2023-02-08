@@ -40,13 +40,4 @@ function delayedRedirect()	{
         }
 
     });
-    $('#mainContent, #sidebar').theiaStickySidebar({
-        additionalMarginTop: 90
-    });
-
-    $('[data-toggle="tooltip"]').tooltip();
-    $('.select2').select2({
-        theme: 'bootstrap-5',
-        width: '100%'
-    });
 })(window.jQuery);

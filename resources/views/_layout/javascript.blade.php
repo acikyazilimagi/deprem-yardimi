@@ -1,13 +1,10 @@
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/vendor/theia-sticky-sidebar/js/ResizeSensor.min.js')}}"></script>
-<script src="{{asset('assets/vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script async src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script async src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script async src="{{ ('/assets/js/scripts.js') }}"></script>
 
 @yield('js_vendor')
-
-<script src="{{ ('/assets/js/scripts.js') }}"></script>
 
 <script>
   @if(Session::has('success'))
