@@ -16,9 +16,9 @@
       </div>
       <div class="col-lg-9 col-6">
         <!-- Menu -->
-        <nav id="menu" class="main-menu">
+        {{-- <nav id="menu" class="main-menu">
           <ul>
-            {{-- <li>
+            <li>
               <span><a href="#">Try Demos <i class="fa fa-chevron-down"></i></a></span>
               <ul>
                 <li><a href="index.html">HTML email - download link</a></li>
@@ -37,10 +37,10 @@
               </ul>
             </li>								 --}}
 
-            <li><a class="text-dark p-0 m-0" href="{{route('icerik.gecici-barinma-alanlari')}}">Geçiçi Barınma Alanları</a></li>
+            {{-- <li><a class="text-dark p-0 m-0" href="{{route('icerik.gecici-barinma-alanlari')}}">Geçiçi Barınma Alanları</a></li>
 
           </ul>
-        </nav>
+        </nav> --}}
         <!-- Menu End -->
       </div>
     </div>
