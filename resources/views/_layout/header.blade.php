@@ -30,7 +30,7 @@
             </li> --}}
             {{-- <li>
               <span><a href="#">How HTML email looks like <i class="fa fa-chevron-down"></i></a></span>
-              <ul>										
+              <ul>
                 <li><a href="php/phpmailer/email-file-download.html" target="_blank">File download link</a></li>
                 <li><a href="php/phpmailer/email-file-attachment.html" target="_blank">File attachment</a></li>
                 <li><a href="php/phpmailer/email-confirmation.html" target="_blank">Confirmation</a></li>
