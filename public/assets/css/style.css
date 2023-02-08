@@ -1067,34 +1067,6 @@ label.cbx {
 	text-decoration: underline;
 }
 
-/* Back To Top
-==================================== */
-
-#toTop {
-	width: 40px;
-	height: 40px;
-	background-color: black;
-	background-color: rgba(0, 0, 0, 0.6);
-	text-align: center;
-	padding: 10px;
-	line-height: 20px;
-	position: fixed;
-	bottom: 15px;
-	right: 15px;
-	cursor: pointer;
-	display: none;
-	color: #fff;
-	font-size: 20px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	border-radius: 3px;
-	z-index: 2;
-}
-
-/* Success Submit
-==================================== */
-
 #success {
 	position: absolute;
 	top: 50%;
