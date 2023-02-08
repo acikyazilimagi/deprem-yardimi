@@ -53,6 +53,22 @@ class ContentController extends Controller
 
         return view('content.gecici-barinma-alanlari', compact('geciciBarinma'));
     }
+    public function guvenliToplanma()
+    {
+        $url = "https://raw.githubusercontent.com/alpaylan/afetbilgi.com/main/data/all.combined.1.json";
+        $json = file_get_contents($url);
+
+        $data = json_decode($json, true);
+        $options  = $data['options'];
+
+        //All data from guvenli toplanma
+        $guvenliToplanma = $options[1]['value']['options'];
+    
+ 
+
+
+        return view('content.guvenli-toplanma-alanlari', compact('guvenliToplanma'));
+    }
 
 
 

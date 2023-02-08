@@ -34,4 +34,5 @@ Route::get('get-token', function (){
 Route::prefix('icerik')->group(function () {
   Route::get("/", [ContentController::class, "index"])->name("icerik");
   Route::get("/gecici-barinma-alanlari", [ContentController::class, "geciciBarinma"])->name("icerik.gecici-barinma-alanlari");
+  Route::get("/guvenli-toplanma-alanlari", [ContentController::class, "guvenliToplanma"])->name("icerik.guvenli-toplanma-alanlari");
 });
