@@ -115,13 +115,13 @@
 
         <div class="col-12">
             <div class="row">
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-3 order-1 order-md-0">
                     <button wire:click="clearForm" type="button" name="submit" class="btn btn-block btn-danger">
                         <span class="btn-form-func-content">Temizle</span>
                         <span class="icon"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
                     </button>
                 </div>
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-9 order-0 order-md-1 mb-3">
                     <button type="submit" name="submit" data-type="save" class="form_submit btn btn-block btn-info">
                         <span class="btn-form-func-content">Kaydet</span>
                         <span class="icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
