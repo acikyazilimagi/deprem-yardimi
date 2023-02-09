@@ -103,8 +103,12 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="phone">Telefon No</label>
-                <input class="form-control" wire:model.defer="phoneNumber" id="address_form_phone" placeholder="0 555 555 55 55 Şeklinde Giriniz.." type="tel" name="phone" />
-            </div>
+                <input @class(['form-control', 'is-invalid' => $errors->has('phoneNumber')]) wire:model.defer="phoneNumber" id="address_form_phone" placeholder="0 555 555 55 55 Şeklinde Giriniz.." type="tel" name="phone"/>
+                @error('phoneNumber')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror            </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
