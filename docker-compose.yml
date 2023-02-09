@@ -11,8 +11,6 @@ services:
             - .env
         extra_hosts:
             - 'host.docker.internal:host-gateway'
-        networks:
-            - service_network
 
     service_db:
         image: 'mariadb:10'
@@ -28,15 +26,9 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
             - 'service_db:/var/lib/mysql'
-        networks:
-            - service_network
 
 volumes:
     service_app:
         name: service_app
     service_db:
         name: service_db
-
-networks:
-    service_network:
-        driver: bridge
