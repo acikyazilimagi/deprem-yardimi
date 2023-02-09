@@ -11,6 +11,26 @@
         #source::placeholder {
             color: #cc6161 !important;
         }
+
+        #datatable_filter {
+            display: flex;
+            flex-direction: row-reverse;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 767px) {
+            #datatable_filter {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 5px !important;
+            }
+
+            #datatable_filter > * {
+                display: block;
+                width: 100% !important;
+                margin-bottom: 5px !important;
+            }
+        }
     </style>
 @endsection
 
@@ -21,6 +41,13 @@
 @section('js_page')
     <script>
         $(document).ready(function () {
+            $(document).on('keypress', '#datatable_filter > label > input[type=search]', function (e) {
+                if(e.which === 13){
+                    e.preventDefault()
+                    $('#submit-datatable-filter').trigger('click')
+                }
+            })
+
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             $('#datatable').DataTable({
                 processing: true,
@@ -80,6 +107,22 @@
                         }
                     }
                 },
+                initComplete : function() {
+                    let input = $('.dataTables_filter input').unbind(),
+                        self = this.api(),
+                        $searchButton = $('<button class="btn btn-sm btn-success mr-3" style="width: 100px" id="submit-datatable-filter">')
+                            .text('Ara')
+                            .click(function() {
+                                self.search(input.val()).draw();
+                            }),
+                        $clearButton = $('<button class="btn btn-sm btn-danger mr-3" style="width: 100px">')
+                            .text('Temizle')
+                            .click(function() {
+                                input.val('');
+                                $searchButton.click();
+                            })
+                    $('.dataTables_filter').append($searchButton, $clearButton);
+                }
             });
         });
     </script>
