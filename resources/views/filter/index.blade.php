@@ -111,6 +111,7 @@
                     },
                     success: function (data) {
                         $($this).removeAttr('disabled')
+                        $('#more').removeAttr('disabled').html('Devamını Getir')
 
                         getToken()
 
@@ -147,6 +148,7 @@
                         }
                     },
                     error: function (err) {
+                        $('#more').removeAttr('disabled').html('Devamını Getir')
                         $($this).removeAttr('disabled')
                         getToken()
                     }
@@ -155,6 +157,8 @@
             })
 
             $('#more').on('click', function (e) {
+                $(this).attr('disabled', 'disabled').html('Yükleniyor..')
+
                 e.preventDefault()
                 $('#search').trigger('click')
             })
