@@ -114,6 +114,7 @@
                     success: function (data) {
                         $($this).removeAttr('disabled')
                         $('#more').removeAttr('disabled').html('Devamını Getir')
+                        $('#search').attr('disabled', 'disabled')
 
                         getToken()
 
@@ -131,7 +132,6 @@
                             })
 
                             if(data.data.current_page === data.data.last_page){
-                                $('#search').attr('disabled', 'disabled')
 
                                 $('#more')
                                     .removeClass('d-block').addClass('d-none')
@@ -144,7 +144,6 @@
                                     .attr('data-last-page', data.data.last_page)
                             }
                         }else{
-                            $('#search').attr('disabled', 'disabled')
                             $('#filter_table > tbody').append(
                                 '<tr>' +
                                 '    <td colspan="5" class="text-center text-danger">Herhangi bir veri bulunamadı !</td>' +
