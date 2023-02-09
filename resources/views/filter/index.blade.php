@@ -19,6 +19,7 @@
 
             $(document).on('change', '#city', function () {
                 $('#filter_table > tbody').html('')
+                $('#search').removeAttr('disabled')
 
                 const city = $(this).val();
                 const token = $('#token').val()
@@ -46,6 +47,7 @@
             });
             $(document).on('change', '#district', function () {
                 $('#filter_table > tbody').html('')
+                $('#search').removeAttr('disabled')
 
                 const district = $(this).val();
                 const token = $('#token').val()
@@ -129,6 +131,8 @@
                             })
 
                             if(data.data.current_page === data.data.last_page){
+                                $('#search').attr('disabled', 'disabled')
+
                                 $('#more')
                                     .removeClass('d-block').addClass('d-none')
                                     .attr('data-current-page', 0)
@@ -140,9 +144,10 @@
                                     .attr('data-last-page', data.data.last_page)
                             }
                         }else{
+                            $('#search').attr('disabled', 'disabled')
                             $('#filter_table > tbody').append(
                                 '<tr>' +
-                                '    <td colspan="5">Herhangi bir veri bulunamadı !</td>' +
+                                '    <td colspan="5" class="text-center text-danger">Herhangi bir veri bulunamadı !</td>' +
                                 '</tr>'
                             )
                         }
