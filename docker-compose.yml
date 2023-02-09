@@ -1,20 +1,22 @@
 version: "3.9"
 services:
-    SERVICE___APP:
-        image: acikkaynak/deprem-yardimi
-        container_name: CONTAINER___APP
+    service_app:
+        build: .
+        container_name: container_app
         restart: always
-        hostname: SERVICE___APP
+        hostname: service_app
         ports:
             - "8001:80"
         env_file:
             - .env
         extra_hosts:
             - 'host.docker.internal:host-gateway'
+        networks:
+            - service_network
 
-    SERVICE___DB:
+    service_db:
         image: 'mariadb:10'
-        container_name: 'SERVICE___DB'
+        container_name: 'service_db'
         ports:
             - '3306:3306'
         environment:
@@ -25,10 +27,16 @@ services:
             MYSQL_PASSWORD: 'password'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
-            - 'SERVICE___DB:/var/lib/mysql'
+            - 'service_db:/var/lib/mysql'
+        networks:
+            - service_network
 
 volumes:
-    SERVICE___APP:
-        name: SERVICE___APP
-    SERVICE___DB:
-        name: SERVICE___DB
+    service_app:
+        name: service_app
+    service_db:
+        name: service_db
+
+networks:
+    service_network:
+        driver: bridge
