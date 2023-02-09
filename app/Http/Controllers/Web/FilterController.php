@@ -28,7 +28,7 @@ class FilterController extends Controller
             $data = [];
         }else{
             $data = Data::
-            select(['city', 'district', 'street', 'street2', 'apartment', 'apartment_no', 'apartment_floor', 'address', 'fullname', 'source', 'created_at'])
+                select(['city', 'district', 'street', 'street2', 'apartment', 'apartment_no', 'apartment_floor', 'address', 'fullname', 'source', 'created_at'])
                 ->where(function ($q) use ($city, $district, $street){
                     if ($city && $district){
                         $q
@@ -49,7 +49,7 @@ class FilterController extends Controller
                     }
                 })
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(100);
 
         }
 
