@@ -18,6 +18,8 @@
             getToken()
 
             $(document).on('change', '#city', function () {
+                $('#filter_table > tbody').html('')
+
                 const city = $(this).val();
                 const token = $('#token').val()
 
@@ -43,6 +45,8 @@
                 });
             });
             $(document).on('change', '#district', function () {
+                $('#filter_table > tbody').html('')
+
                 const district = $(this).val();
                 const token = $('#token').val()
 
@@ -73,7 +77,6 @@
 
                 const $this = this
 
-
                 const city = $('#city').val()
                 const district = $('#district').val()
                 const street = $('#street').val()
@@ -87,8 +90,17 @@
 
                 $($this).attr('disabled', 'disabled')
 
+                let current_page = parseInt($('#more').attr('data-current-page'));
+                let last_page = parseInt($('#more').attr('data-last-page'));
+
+                let querystring = ''
+                if(current_page !== 0 && current_page !== last_page){
+                    current_page++
+                    querystring = '&page=' + current_page
+                }
+
                 $.ajax({
-                    url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token,
+                    url: "{{ route('filter.filter') }}?X-AUTH-KEY=" + token + querystring,
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
@@ -102,10 +114,8 @@
 
                         getToken()
 
-                        $('#filter_table > tbody').html('')
-
-                        if(data.data.length){
-                            data.data.forEach(item => {
+                        if(data.data.data.length){
+                            data.data.data.forEach(item => {
                                 $('#filter_table > tbody').append(
                                     '<tr>' +
                                     '    <td>' + item.city.toString() + '/' + item.district.toString() + '/' + item.street.toString() + ' <br /> Oluşturulma : ' + item.created_at + '</td>' +
@@ -116,6 +126,18 @@
                                     '</tr>'
                                 )
                             })
+
+                            if(data.data.current_page === data.data.last_page){
+                                $('#more')
+                                    .removeClass('d-block').addClass('d-none')
+                                    .attr('data-current-page', 0)
+                                    .attr('data-last-page', 0)
+                            }else{
+                                $('#more')
+                                    .removeClass('d-none').addClass('d-block')
+                                    .attr('data-current-page', data.data.current_page)
+                                    .attr('data-last-page', data.data.last_page)
+                            }
                         }else{
                             $('#filter_table > tbody').append(
                                 '<tr>' +
@@ -130,6 +152,11 @@
                     }
                 });
 
+            })
+
+            $('#more').on('click', function (e) {
+                e.preventDefault()
+                $('#search').trigger('click')
             })
 
             setTimeout(function (){
@@ -194,6 +221,9 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="alert alert-info text-center">Sayfa başına eleman sayısı 100 olarak belirlendi.</div>
+        </div>
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -209,6 +239,12 @@
                             </thead>
                             <tbody></tbody>
                         </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button id="more" class="btn btn-success w-100 d-none" data-current-page="0" data-last-page="0">Devamını Getir</button>
+                        </div>
                     </div>
                 </div>
             </div>
