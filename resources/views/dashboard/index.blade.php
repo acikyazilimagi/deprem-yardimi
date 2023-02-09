@@ -6,7 +6,7 @@
             $(document).on('change', '#city', function () {
                 const city = $(this).val();
                 $.ajax({
-                    url: "{{route('get_district')}}",
+                    url: "{{route('location.districts')}}",
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
@@ -28,7 +28,7 @@
             $(document).on('change', '#district', function () {
                 const district = $(this).val();
                 $.ajax({
-                    url: "{{route('get_street')}}",
+                    url: "{{route('location.streets')}}",
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
@@ -53,7 +53,7 @@
 
 @section('content-side')
     <div class="col-12">
-        <div class="alert alert-info">Lütfen kayıt eklemeden önce <a class="badge badge-info p-2 font-weight-bold text-white" style="font-size: 12px" href="{{ route('fast_search') }}">Yardım İsteyenler</a> sayfasından aynı kaydın daha önce eklenip eklenmediğini kontrol ediniz.</div>
+        <div class="alert alert-info">Lütfen kayıt eklemeden önce <a class="badge badge-info p-2 font-weight-bold text-white" style="font-size: 12px" href="{{ route('help.index') }}">Yardım İsteyenler</a> sayfasından aynı kaydın daha önce eklenip eklenmediğini kontrol ediniz.</div>
     </div>
     <div class="col-12">
         <div class="card">
@@ -66,6 +66,6 @@
 
 @section('content-full')
     <div class="col-12">
-        <a href="{{route('fast_search')}}" class="btn btn-success mt-3 d-block text-white">Yardım İsteyenler</a>
+        <a href="{{route('help.index')}}" class="btn btn-success mt-3 d-block text-white">Yardım İsteyenler</a>
     </div>
 @endsection

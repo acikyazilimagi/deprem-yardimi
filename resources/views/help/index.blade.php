@@ -25,7 +25,7 @@
             $('#datatable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{route('dashboard.datatable')}}",
+                ajax: "{{route('help.datatable')}}",
                 columns: [
                     {data: 'city'},
                     {data: 'address'},

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
+use App\Http\Controllers\Controller;
 use App\Models\Data;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class FilterController extends Controller
 {

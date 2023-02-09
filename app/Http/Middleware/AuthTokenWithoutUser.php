@@ -31,7 +31,7 @@ class AuthTokenWithoutUser
 
             return response()->json(['message' => 'Access denied'], 403);
         } else {
-            if ($request->route()->getName() === 'get-token') {
+            if ($request->route()->getName() === 'security.get-token') {
                 // TODO : Domain kontrolü doğru çalışmıyor, güvenli hale getirilecek..
                 $domain = substr($request->root(), 7);
 
