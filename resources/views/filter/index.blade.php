@@ -4,15 +4,13 @@
     <script type="text/javascript">
         function getToken() {
             $.ajax({
-                url: "{{route('get-token')}}",
+                url: "{{route('security.get-token')}}",
                 type: "GET",
                 success: function (data, status, xhr) {
                     const token = xhr.getResponseHeader('X-AUTH-KEY')
                     $('#token').val(token)
                 },
-                error: function (err) {
-                    console.log(err);
-                }
+                error: function (err) {}
             });
         }
 
@@ -21,12 +19,15 @@
 
             $(document).on('change', '#city', function () {
                 const city = $(this).val();
+                const token = $('#token').val()
+
                 $.ajax({
-                    url: "{{route('get_district')}}",
+                    url: "{{route('location.districts')}}",
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
-                        city: city
+                        city,
+                        'X-AUTH-KEY': token
                     },
                     success: function (data) {
                         $('#district').empty();
@@ -34,21 +35,24 @@
                         $.each(data.data, function (key, value) {
                             $('#district').append('<option value="' + value.district + '">' + value.district + '</option>');
                         });
-
+                        getToken()
                     },
                     error: function (err) {
-                        console.log(err);
+                        getToken()
                     }
                 });
             });
             $(document).on('change', '#district', function () {
                 const district = $(this).val();
+                const token = $('#token').val()
+
                 $.ajax({
-                    url: "{{route('get_street')}}",
+                    url: "{{route('location.streets')}}",
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
-                        district: district
+                        district,
+                        'X-AUTH-KEY': token
                     },
                     success: function (data) {
                         $('#street').empty();
@@ -56,10 +60,10 @@
                         $.each(data.data, function (key, value) {
                             $('#street').append('<option value="' + value.street + '">' + value.street + '</option>');
                         });
-
+                        getToken()
                     },
                     error: function (err) {
-                        console.log(err);
+                        getToken()
                     }
                 });
             });
@@ -123,13 +127,16 @@
                     error: function (err) {
                         $($this).removeAttr('disabled')
                         getToken()
-                        console.log(err);
                     }
                 });
 
             })
 
-            $('#city').trigger('change');
+            setTimeout(function (){
+                @if(!empty($filter_city))
+                    $('#city').trigger('change');
+                @endif
+            }, 1500)
         })
     </script>
 @endsection
@@ -138,7 +145,7 @@
     <input type="hidden" id="token">
     <div class="container">
         <div class="col-12 mb-3">
-         @if(!empty($filter_city)) 
+         @if(!empty($filter_city))
            <div class="alert alert-warning" role="alert">Lütfen <b>İlçe</b> seçiniz ve <b>Ara</b> butonuna tıklayınız.</div>
          @endif
             <div class="card">
@@ -150,7 +157,7 @@
                                 <select id="city" class="form-control" name="city" required>
                                     <option value="">İl Seçiniz.</option>
                                     @foreach($cities as $city)
-                                        <option value="{{$city->city}}" 
+                                        <option value="{{$city->city}}"
                                         {{ mb_strtolower($filter_city) === mb_strtolower($city->city) ?  'selected="selected"' : '' }}
                                         >{{$city->city}}</option>
                                     @endforeach

@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand bg-body-tertiary main-header">
     <div class="container">
         <div class="collapse navbar-collapse">
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('dashboard.index') }}">
                 <img src="{{ asset('assets/img/logo/png/50x50.png') }}" alt="Deprem Yardım">
                 <h1 style="font-size: 16px; display: inline-block">Deprem Yardım</h1>
             </a>
@@ -44,8 +44,8 @@
   <div class="container">
       <div class="row">
           <nav class="col-12 d-flex justify-content-between sub-header-menu">
-              <h2 class="p-0 m-0" style="font-size: 16px"><a href="{{route('dashboard')}}" class="btn btn-danger text-white">Deprem Yardım Bildirimi</a></h2>
-              <h2 class="p-0 m-0" style="font-size: 16px"><a href="{{route('fast_search')}}" class="btn btn-success ml-3 text-white">Yardım İsteyenler</a></h2>
+              <h2 class="p-0 m-0" style="font-size: 16px"><a href="{{route('dashboard.index')}}" class="btn btn-danger text-white">Deprem Yardım Bildirimi</a></h2>
+              <h2 class="p-0 m-0" style="font-size: 16px"><a href="{{route('help.index')}}" class="btn btn-success ml-3 text-white">Yardım İsteyenler</a></h2>
               <h2 class="p-0 m-0" style="font-size: 16px"><a href="{{route('filter.index')}}" class="btn btn-warning ml-3 text-white">Detaylı Filtre</a></h2>
           </nav>
       </div>
