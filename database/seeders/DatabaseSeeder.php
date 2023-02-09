@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Data;
+use App\Models\{
+    Data,
+    Location
+};
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Data::factory(150)->create();
+
+        // Location::factory(150)->create();
 
         // \App\Models\User::factory(10)->create();
 
