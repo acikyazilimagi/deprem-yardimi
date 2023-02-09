@@ -76,6 +76,7 @@ class AddressNotificationForm extends Component
             'source' => 'required',
             'street' => 'required',
             'apartment' => 'required',
+            'phoneNumber'=>'required',
         ], messages: [
             'required' => 'Bu alan zorunludur',
         ]);
