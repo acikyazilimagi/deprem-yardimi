@@ -7,6 +7,7 @@ use App\Models\Location;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
+use App\Classes\BadWordFacade;
 
 class AddressNotificationForm extends Component
 {
@@ -79,6 +80,28 @@ class AddressNotificationForm extends Component
         ], messages: [
             'required' => 'Bu alan zorunludur',
         ]);
+
+        $valid = BadWordFacade::validateBy(
+            $this->source,
+            $this->city,
+            $this->district,
+            $this->neighbourhood,
+            $this->street,
+            $this->apartment
+        );
+
+        if ( $valid ) {
+            $this->dispatchBrowserEvent(
+                'formSubmitted',
+                [
+                    'title' => 'Hata',
+                    'message' => 'Bu alanda geçersiz ifade bulunmaktadır',
+                    'status' => 'error',
+                ]
+            );
+
+            return;
+        }
 
         try {
             $this->rateLimit(5);
